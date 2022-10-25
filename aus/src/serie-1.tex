@@ -1,0 +1,128 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows.meta, positioning, calc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Fach}{Automaten und Sprachen}
+\newcommand{\Name}{Yannick Brenning}
+\newcommand{\Seminargruppe}{C}
+\newcommand{\Matrikelnummer}{3732848}
+\newcommand{\Semester}{WiSe 21/22}
+\newcommand{\Uebungsblatt}{1} %  <-- UPDATE ME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{Hausaufgabe 1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{4}
+        \begin{enumerate}[(a)]
+            \item
+            $ b \in L(\mathcal{A}_1) $ \\
+            $\epsilon \in L(\mathcal{A}_2) $
+            \item
+            $ bc \notin L(\mathcal{A}_1) $ \\
+            $ c \notin L(\mathcal{A}_2) $
+            \item
+            $ L(\mathcal{A}_1) = \{a^* \cdot b \cdot \{a, b\}^*\} $
+            $ L(\mathcal{A}_2)  = \{w \in \{a, b\}^* \; | \; |w|_b \leq |w|_a \leq 4\} $
+        \end{enumerate}
+
+%    \Aufgabe{5} \\
+%    \begin{tikzpicture}[node distance = 2.5cm, on grid, auto]
+%        \node (1) [state, initial] {$q_0$};
+%        \node (2) [state, above right of = 1] {$q_1$};
+%        \node (3) [state, accepting, under right of = 2] {$q_3$};
+
+%    \path [-stealth]
+%    \end{tikzpicture} \leavevmode \\[2\baselineskip]
+%    (1) edge [above] node {$b$} (2)
+%    (2) edge [above] node {$a,b$} (3)
+%    (3) edge [above] node {$a,b$} (4)
+
+    \Aufgabe{6} \\
+    \begin{enumerate}[(a)]
+        \item
+        $L_1 \cdot (L_2 \cup L_3) \Leftrightarrow \{u \cdot v \; | \; u \in L_1 \land v \in L_2 \text{ oder } L_3\}$
+        \begin{flalign*}
+            (L_1 \cdot L_2) \cup (L_1 \cdot L_3) & \Leftrightarrow
+            \{u \cdot v \; | \; u \in L_1 \land v \in L_2\}
+            \cup \{u \cdot v \; | \; u \in L_1 \land v \in L_3\} && \\
+            & \Leftrightarrow
+            \{u \cdot v \; | \; u \in L_1 \land v \in L_2 \text{ oder } L_3\} && \\
+            & \Leftrightarrow
+            L_1 \cdot (L_2 \cup L_3)
+        \end{flalign*}
+        \item
+        \begin{flalign*}
+            L_1^* \cdot L_1 & = \bigcup_{i\in\mathbb N_0} L^i \cdot L_1 && \\
+            \text{Sei } L_1 & = \{a, b\}. \text{ Dann gilt } L_1^* = \{\epsilon, a, b, aa, bb, ab, ba, aaa, \mathellipsis\}
+        \end{flalign*}
+    \end{enumerate}
+
+\end{document}
