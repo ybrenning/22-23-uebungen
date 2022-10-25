@@ -1,0 +1,118 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Fach}{Wahrscheinlichkeitstheorie}
+\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Seminargruppe}{F}
+\newcommand{\Matrikelnummer}{3732848, xxxxxxx}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{1} %  <-- UPDATE ME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{HA #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{4} \\
+    Da alle $x_i$ gleich oft vorkommen (n"amlich je ein mal) gibt es keinen Modalwert $x_{mod}$. \\
+    \begin{flalign*}
+        \bar{x} & = \frac{6.4 + 8.25 + 8.5 + 2.15 + 1.45 + 5.05 + 11.4 + 11.6 + 6.7 + 9.65 + 6.9 + 6.65}{12} && \\
+        & = \frac{84.7}{12} \approx 7.06
+    \end{flalign*}
+
+    % 1.45 2.15 5.05 6.4
+    % 6.4 8.25 8.5 2.15 1.45 5.05 11.4 11.6 6.7 9.65 6.9 6.65
+
+    \Aufgabe{5}
+    \begin{enumerate}[(a)]
+        \item
+        $ x_{mod} = 200 $ \\
+        \begin{flalign*}
+            x_{med} & = \frac{1}{2} (x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}) = \frac{1}{2} (x_{5} + x_{6}) && \\
+            & = \frac{1}{2} (200 + 200) && \\
+            & = 200
+        \end{flalign*}
+        \begin{flalign*}
+            \bar{x} & = \frac{1}{n} \sum_{i=1}^{n} x_i && \\
+            & = \frac{200 + 150+ 1200 + 250 + 300 + 200 + 200 + 500 + 100 + 200}{10} && \\
+            & = \frac{3300}{10} = 330
+        \end{flalign*}
+
+        \item
+            \begin{enumerate}[(b1)]
+                \item
+                Es sei $ x_i $ der abgehobene Betrag des $ i $-ten Kundens, dann seien \\ \\
+                $ k_i = 0.1 + 0.01 \cdot x_i $ \\ \\
+                 die Kosten für diesen Betrag.
+                \begin{flalign*}
+                    \bar{k} & = 0.1 + 0.01 \cdot \bar{x} = 0.1 + 0.01 \cdot 330 && \\
+                    & = 3.4
+                \end{flalign*}
+            \end{enumerate}
+    \end{enumerate}
+
+\end{document}
