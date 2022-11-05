@@ -26,7 +26,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Fach}{Automaten und Sprachen}
-\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Name}{Yannick Brenning, Jean R"other}
 \newcommand{\Seminargruppe}{C}
 \newcommand{\Matrikelnummer}{3732848, 3796826}
 \newcommand{\Semester}{WiSe 22/23}
@@ -80,14 +80,14 @@
     \end{center}
     \vspace*{0.2cm}
 
-    \Aufgabe{4}
+    \Aufgabe{4} \\
         \begin{enumerate}[(a)]
             \item
             $ b \in L(\mathcal{A}_1) $ \\
             $\epsilon \in L(\mathcal{A}_2) $
             \item
             $ bc \notin L(\mathcal{A}_1) $ \\
-            $ c \notin L(\mathcal{A}_2) $
+            $ aa \notin L(\mathcal{A}_2) $
             \item
             $ L(\mathcal{A}_1) = \{a^* \cdot b \cdot \{a, b\}^*\} $
             $ L(\mathcal{A}_2)  = \{w \in \{a, b\}^* \; | \; |w|_b \leq |w|_a \leq 4\} $
@@ -104,6 +104,70 @@
 %    (1) edge [above] node {$b$} (2)
 %    (2) edge [above] node {$a,b$} (3)
 %    (3) edge [above] node {$a,b$} (4)
+    \Aufgabe{5} \\
+    $ \mathcal{A}_1 $ \\
+    \begin{tikzpicture}[node distance = 2cm, on grid]
+        % \draw [help lines] (-1, 1) grid (3, -1);
+        \node (q0) [state, initial, accepting, initial text = {}] {$q_0$};
+        \node (q1) [state, accepting, right = of q0] {$q_1$};
+        \node (q2) [state, right = of q1] {$q_2$};
+
+        \path [-stealth]
+        (q0) edge [loop above] node {$a$} ()
+        (q0) edge [above] node {$b$} (q1)
+        (q1) edge [loop above] node {$a$} ()
+        (q1) edge [above] node {$b$} (q2)
+        (q2) edge [loop above] node {$a, b$} ()
+    \end{tikzpicture}
+
+    $ \mathcal{A}_2 $ \\
+    \begin{tikzpicture}[node distance = 2cm, on grid]
+        % \draw [help lines] (-1, 1) grid (3, -1);
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, accepting, right = of q0] {$q_1$};
+
+        \path [-stealth]
+        (q0) edge [loop above] node {$b$} ()
+        (q0) edge [bend left, above] node {$a$} (q1)
+        (q1) edge [loop above] node {$a$} ()
+        (q1) edge [bend left, below] node {$b$} (q0)
+    \end{tikzpicture}
+
+    $ \mathcal{A}_3 $ \\
+    \begin{tikzpicture}[node distance = 2.5cm, on grid]
+        % \draw [help lines] (-1, 1) grid (3, -1);
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, right = of q0] {$q_1$};
+        \node (q2) [state, right = of q1] {$q_2$};
+        \node (q3) [state, accepting, right = of q2] {$q_3$};
+
+        \path [-stealth]
+        (q0) edge [above] node {$a, b, c$} (q1)
+        (q1) edge [above] node {$a, b, c$} (q2)
+        (q2) edge [above] node {$a, b, c$} (q3)
+        (q3) edge [bend left, below] node {$a, b, c$} (q1)
+    \end{tikzpicture}
+
+    $ \mathcal{A}_4 $ \newpage
+
+    $ \mathcal{A}_5 $ \\
+    \begin{tikzpicture}[node distance = 2cm, on grid]
+        % \draw [help lines] (-1, 1) grid (3, -1);
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, right = of q0] {$q_1$};
+        \node (q2) [state, below = of q1] {$q_2$};
+        \node (q3) [state, accepting, right = of q1] {$q_3$};
+
+        \path [-stealth]
+        (q0) edge [loop above] node {$a$} ()
+        (q0) edge [above] node {$b$} (q1)
+        (q1) edge [loop above] node {$a$} ()
+        (q1) edge [above] node {$b$} (q3)
+        (q3) edge [loop above] node {$a$} ()
+        (q3) edge [below right] node {$b$} (q2)
+        (q1) edge [left] node {$b$} (q2)
+        (q2) edge [loop below] node {$a, b$} ()
+    \end{tikzpicture}
 
     \Aufgabe{6} \\
     \begin{enumerate}[(a)]
@@ -123,6 +187,16 @@
             L_1^* \cdot L_1 & = \bigcup_{i\in\mathbb N_0} L^i \cdot L_1 && \\
             \text{Sei } L_1 & = \{a, b\}. \text{ Dann gilt } L_1^* = \{\epsilon, a, b, aa, bb, ab, ba, aaa, \mathellipsis\}
         \end{flalign*}
+    \end{enumerate}
+    
+    \Aufgabe{7}
+    \begin{enumerate}[(a)]
+        \item Der Automat $ \mathcal{A}  = \{\{q_0\}, \{a\}, \delta, \{q_0\}\}, \delta(q_0, a) = q_0 $ hat als einzigen
+        akzeptierenden Zustand den Anfangszustand $q_0$, allerdings ist in diesem Fall $L(\mathcal{A}) = \{a\}^*$
+
+        \item Ein deterministisch endlicher Automat $ \mathcal{A} $ hat f"ur jede m"ogliche Kombination von
+        Zustand und Symbol einen Folgezustand definiert, und da alle Zust"ande akzeptierend sind, akzeptiert $ \mathcal{A} $
+        auch alle W"orter "uber dem Alphabet $ \Sigma $, also $ \Sigma^* $.
     \end{enumerate}
 
 \end{document}
