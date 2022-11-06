@@ -80,34 +80,24 @@
     \end{center}
     \vspace*{0.2cm}
 
-    \Aufgabe{4} \\
+    \Aufgabe{4}
         \begin{enumerate}[(a)]
             \item
             $ b \in L(\mathcal{A}_1) $ \\
             $\epsilon \in L(\mathcal{A}_2) $
+
             \item
             $ bc \notin L(\mathcal{A}_1) $ \\
             $ aa \notin L(\mathcal{A}_2) $
+
             \item
-            $ L(\mathcal{A}_1) = \{a^* \cdot b \cdot \{a, b\}^*\} $
-            $ L(\mathcal{A}_2)  = \{w \in \{a, b\}^* \; | \; |w|_b \leq |w|_a \leq 4\} $
+            $ L(\mathcal{A}_1) = \{a^* \cdot b \cdot \{a, b\}^*\} $ \\
+            $ L(\mathcal{A}_2)  = \{w \in \{a, b\}^* \setminus \{aa, bb\} \; | \; |w| \mod 2 = 0\} $
         \end{enumerate}
 
-%    \Aufgabe{5} \\
-%    \begin{tikzpicture}[node distance = 2.5cm, on grid, auto]
-%        \node (1) [state, initial] {$q_0$};
-%        \node (2) [state, above right of = 1] {$q_1$};
-%        \node (3) [state, accepting, under right of = 2] {$q_3$};
-
-%    \path [-stealth]
-%    \end{tikzpicture} \leavevmode \\[2\baselineskip]
-%    (1) edge [above] node {$b$} (2)
-%    (2) edge [above] node {$a,b$} (3)
-%    (3) edge [above] node {$a,b$} (4)
     \Aufgabe{5} \\
     $ \mathcal{A}_1 $ \\
     \begin{tikzpicture}[node distance = 2cm, on grid]
-        % \draw [help lines] (-1, 1) grid (3, -1);
         \node (q0) [state, initial, accepting, initial text = {}] {$q_0$};
         \node (q1) [state, accepting, right = of q0] {$q_1$};
         \node (q2) [state, right = of q1] {$q_2$};
@@ -122,7 +112,6 @@
 
     $ \mathcal{A}_2 $ \\
     \begin{tikzpicture}[node distance = 2cm, on grid]
-        % \draw [help lines] (-1, 1) grid (3, -1);
         \node (q0) [state, initial, initial text = {}] {$q_0$};
         \node (q1) [state, accepting, right = of q0] {$q_1$};
 
@@ -135,7 +124,6 @@
 
     $ \mathcal{A}_3 $ \\
     \begin{tikzpicture}[node distance = 2.5cm, on grid]
-        % \draw [help lines] (-1, 1) grid (3, -1);
         \node (q0) [state, initial, initial text = {}] {$q_0$};
         \node (q1) [state, right = of q0] {$q_1$};
         \node (q2) [state, right = of q1] {$q_2$};
@@ -148,11 +136,26 @@
         (q3) edge [bend left, below] node {$a, b, c$} (q1)
     \end{tikzpicture}
 
-    $ \mathcal{A}_4 $ \newpage
+    $ \mathcal{A}_4 $ \\
+    \begin{tikzpicture}[node distance = 2.5cm, on grid]
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, right = of q0] {$q_1$};
+        \node (q2) [state, accepting, right = of q1] {$q_2$};
+        \node (q3) [state, accepting, below = of q2] {$q_3$};
+        \node (q4) [state, accepting, left = of q3] {$q_4$};
+        \node (q5) [state, left = of q4] {$q_5$};
+
+        \path [-stealth]
+        (q0) edge [above] node {$a, b, c$} (q1)
+        (q1) edge [above] node {$a, b, c$} (q2)
+        (q2) edge [right] node {$a, b, c$} (q3)
+        (q3) edge [above] node {$a, b, c$} (q4)
+        (q4) edge [above] node {$a, b, c$} (q5)
+        (q5) edge [left] node {$a, b, c$} (q0)
+    \end{tikzpicture}
 
     $ \mathcal{A}_5 $ \\
     \begin{tikzpicture}[node distance = 2cm, on grid]
-        % \draw [help lines] (-1, 1) grid (3, -1);
         \node (q0) [state, initial, initial text = {}] {$q_0$};
         \node (q1) [state, right = of q0] {$q_1$};
         \node (q2) [state, below = of q1] {$q_2$};
@@ -169,11 +172,11 @@
         (q2) edge [loop below] node {$a, b$} ()
     \end{tikzpicture}
 
-    \Aufgabe{6} \\
+    \Aufgabe{6}
     \begin{enumerate}[(a)]
         \item
-        $L_1 \cdot (L_2 \cup L_3) \Leftrightarrow \{u \cdot v \; | \; u \in L_1 \land v \in L_2 \text{ oder } L_3\}$
         \begin{flalign*}
+            L_1 \cdot (L_2 \cup L_3) & \Leftrightarrow \{u \cdot v \; | \; u \in L_1 \land v \in L_2 \text{ oder } L_3\} && \\ \\
             (L_1 \cdot L_2) \cup (L_1 \cdot L_3) & \Leftrightarrow
             \{u \cdot v \; | \; u \in L_1 \land v \in L_2\}
             \cup \{u \cdot v \; | \; u \in L_1 \land v \in L_3\} && \\
@@ -182,21 +185,59 @@
             & \Leftrightarrow
             L_1 \cdot (L_2 \cup L_3)
         \end{flalign*}
+
         \item
         \begin{flalign*}
-            L_1^* \cdot L_1 & = \bigcup_{i\in\mathbb N_0} L^i \cdot L_1 && \\
-            \text{Sei } L_1 & = \{a, b\}. \text{ Dann gilt } L_1^* = \{\epsilon, a, b, aa, bb, ab, ba, aaa, \mathellipsis\}
+            L_1^* & = \bigcup_{i\in\mathbb N_0} L^i && \\
+            L_1^* \cdot L_1 & = \bigcup_{i\in\mathbb N_0} L^i \cdot L_1
         \end{flalign*}
+        Widerlegung durch Gegenbeispiel \\
+        Sei $L_1 & = \{a, b\}$.
+        Dann gilt: \\
+        \begin{flalign*}
+            L_1^* & = \{\epsilon, a, b, aa, bb, ab, ba, aaa, \mathellipsis\}. && \\
+            L_1^* \cdot L_1 & = \{a, b, aa, ab, ba, bb, aba, abb, baa, bab, \mathellipsis\}
+        \end{flalign*}
+
+        Aufgrund der Konkatenation mit $ L_1 $ enth"alt die Sprache $ L_1^* \cdot L_1 $ nicht mehr das leere Wort.
+        Da also $ \epsilon \in L_1^*, \epsilon \notin L_1^* \cdot L_1 $, gilt dementsprechend $ L_1^* \cdot L_1 \neq L_1^* $.
+
+        \newpage
+        \item
+        \begin{flalign*}
+            \text{Zwei Sprachen } L_4, L_5 \text{ sind gleich, wenn gilt: } \forall w \in L_4 \Leftrightarrow w \in L_5 && \\
+        \end{flalign*}
+
+        $ L_4 := \overline{\{a\} \cdot \{b\} \cdot \{a\}} $ \\
+        $ L_5 := \{b\}^* \cdot \{a\} \cdot \{b\}^* $ \\ \\
+
+        Widerlegung durch Gegenbeispiel ($ \exists w \in L_4, w \notin L_5 $): \\
+        $ \epsilon \in L_4, \epsilon \notin L_5 $
+        $ \Rightarrow \overline{\{a\} \cdot \{b\} \cdot \{a\}} \neq \{b\}^* \cdot \{a\} \cdot \{b\}^* $
     \end{enumerate}
-    
+
     \Aufgabe{7}
     \begin{enumerate}[(a)]
-        \item Der Automat $ \mathcal{A}  = \{\{q_0\}, \{a\}, \delta, \{q_0\}\}, \delta(q_0, a) = q_0 $ hat als einzigen
-        akzeptierenden Zustand den Anfangszustand $q_0$, allerdings ist in diesem Fall $L(\mathcal{A}) = \{a\}^*$
+        \item
+        Der Automat $ \mathcal{A}  = \{\{q_0\}, \{a\}, \delta, \{q_0\}\}, \delta(q_0, a) = q_0 $ hat als einzigen
+        akzeptierenden Zustand den Anfangszustand $ q_0 $, allerdings ist in diesem Fall $ L(\mathcal{A}) = \{a\}^* $.
 
-        \item Ein deterministisch endlicher Automat $ \mathcal{A} $ hat f"ur jede m"ogliche Kombination von
+        \item
+        Ein deterministisch endlicher Automat $ \mathcal{A} $ hat f"ur jede m"ogliche Kombination von
         Zustand und Symbol einen Folgezustand definiert, und da alle Zust"ande akzeptierend sind, akzeptiert $ \mathcal{A} $
         auch alle W"orter "uber dem Alphabet $ \Sigma $, also $ \Sigma^* $.
+
+        \item
+        Ein Automat mit zwei akzeptierenden Zust"anden hat trivialerweise zwei M"oglichkeiten, einen Lauf zu beenden,
+        und da DEAs keine $ \epsilon $-"Uberg"ange haben, muss bei jedem Zustands"ubergang ein nichtleeres Symbol gelesen werden, wodurch
+        $ L(\mathcal{A}) $ trivialerweise mindestens zwei W"orter enthalten muss (im minimalen Fall von nur einem
+        Zustands"ubergang w"aren diese das leere Wort und des Symbol des "Ubergangs).
+
+        \item
+        Da die Sprache $ L = \{a\}^* \cdot \{b\}^* $ das leere Wort enth"alt, muss der Anfangszustand auch akzeptierend
+        sein, und es muss einen zweiten akzeptierenden Zustand mit den "Uberg"angen $ \delta(q_0, b) = q_1 , \delta(q_1, b) = q_1 $
+        geben, um die Konkatenation mit $ \{b\}^* $ akzeptieren zu k"onnen.
+        Es existiert also eine Sprache $ L $, die nur von DEAs mit mindestens zwei akzeptierenden Zust"anden erkannt wird.
     \end{enumerate}
 
 \end{document}
