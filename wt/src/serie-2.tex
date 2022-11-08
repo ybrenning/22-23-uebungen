@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Fach}{Wahrscheinlichkeitstheorie}
+\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Seminargruppe}{F}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{1} %  <-- UPDATE ME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{HA #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{1}
+    \begin{enumerate}[(a)]
+        \item
+        \begin{enumerate}[1.]
+            \item
+            Emil w"ahlt zuf"allig f"unf Speisen, welche er in der bestellten bzw. ausgew"ahlten Reihenfolge
+            essen m"ochte und somit auch in der gegebenen Reihenfolge vom Koch auf das F"orderband gestellt werden sollen.
+            Emil ist es egal, wenn eine Speise mehrfach vorkommt. ich weiss gerade
+            \item
+            Emil w"ahlt zuf"allig f"unf voneinander verschiedene Speisen, welche in der gegebenen Reihenfolge
+            auf das Band gestellt und gegessen werden sollen.
+            \item
+            Emil m"ochte f"unf voneinander verschiedene Speisen zuf"allig bestellen.
+            Emil hat kein Problem damit, bspw. den Nachtisch vor der Hauptspeise zu essen,
+            also k"onnen die Gerichte vom Koch beliebig auf das Band gestellt werden.
+            \item
+            Weil Emil sehr gro\ss en Hunger hat, will er in beliebiger Reihenfolge zuf"allige Gerichte essen, die sich
+            ggf. auch doppeln k"onnen.
+        \end{enumerate}
+
+        \item
+        \begin{enumerate}[1.]
+            \item
+            \begin{flalign*}
+                n^k & = 8^5 && \\
+            & = 32768
+            \end{flalign*}
+
+            \item
+            \begin{flalign*}
+                \frac{n!}{(n - k)!} & = \frac{8!}{(8 - 5)!} && \\
+                & = 6720
+            \end{flalign*}
+
+            \item
+            \begin{flalign*}
+                \binom{n}{k} & = \frac{n!}{(n - k)! k!} && \\
+                & = \frac{8!}{(8 - 5)! 5!} && \\
+                & = 56
+            \end{flalign*}
+
+            \item
+            \begin{flalign*}
+                \binom{n + k - 1}{k} & = \binom{8 + 5 - 1}{5} && \\
+                & = \frac{(8 + 5 - 1)!}{(8 + 5 - 1 - 5)! 5!} && \\
+                & = 792
+            \end{flalign*}
+        \end{enumerate}
+    \end{enumerate}
+
+    \Aufgabe{2}
+    \begin{enumerate}[(a)]
+        \item
+        \begin{enumerate}[i.]
+            \item
+            Sie m"usste $ 30^2 = 900 $ verschiedene Kombinationen ausprobieren.
+
+            \item
+            Es verbleiben $ \frac{30!}{(30 - 2)!}  = 870 $ M"oglichkeiten.
+        \end{enumerate}
+    \end{enumerate}
+
+\end{document}
