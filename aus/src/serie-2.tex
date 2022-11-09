@@ -1,0 +1,127 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows.meta, positioning, calc}
+
+\newcommand{\Fach}{Automaten und Sprachen}
+\newcommand{\Name}{Yannick Brenning, Jean R"other}
+\newcommand{\Seminargruppe}{C}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{2}
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{Hausaufgabe #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{4} \\
+    $ \mathcal{A}_1 $ \\
+    \begin{tikzpicture} [node distance = 3cm, on grid]
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, above right of = q0] {$q_1$};
+        \node (q2) [state, right of = q0] {$q_2$};
+        \node (q3) [state, below right = of q0] {$q_3$};
+        \node (q4) [state, accepting, right of = q2] {$q_4$};
+
+        \path [-stealth]
+        (q0) edge [above left] node {$a$} (q1)
+        (q0) edge [above] node {$b$} (q2)
+        (q0) edge [below left] node {$c$} (q3)
+
+        (q1) edge [loop above] node {$a, b, c$} ()
+        (q2) edge [loop above] node {$a, b, c$} ()
+        (q3) edge [loop below] node {$a, b, c$} ()
+
+        (q1) edge [bend left, above right] node {$b, c$} (q4)
+        (q2) edge [above] node {$a, c$} (q4)
+        (q3) edge [bend right, below right] node {$a, b$} (q4)
+    \end{tikzpicture} \\
+
+    $ \mathcal{A}_ 2 $ \\
+
+    \begin{tikzpicture} [node distance = 3cm, on grid]
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, above right of = q0] {$q_1$};
+        \node (q2) [state, below right of = q0] {$q_2$};
+        \node (q3) [state, above right = of q1] {$q_3$};
+        \node (q4) [state, below right of = q2] {$q_4$};
+        \node (q5) [state, accepting, below right of = q1] {$q_5$};
+
+        \path [-stealth]
+        (q0) edge [above left] node {$a$} (q1)
+        (q0) edge [below left] node {$b$} (q2)
+
+        (q1) edge [loop above] node {$b$} ()
+        (q2) edge [loop below] node {$a$} ()
+
+        (q1) edge [bend left, above] node {$a$} (q3)
+        (q2) edge [bend left, above] node {$b$} (q4)
+        (q3) edge [bend left, below] node {$a$} (q1)
+        (q4) edge [bend left, below] node {$b$} (q2)
+
+        (q1) edge [above] node {$a$} (q5)
+        (q2) edge [below] node {$b$} (q5)
+    \end{tikzpicture}
+
+\end{document}
