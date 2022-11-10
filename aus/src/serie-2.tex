@@ -126,4 +126,15 @@
         (q2) edge [below] node {$b$} (q5)
     \end{tikzpicture}
 
+    \begin{tikzpicture} [node distance = 2cm, on grid]
+        \node (q0) [state, initial, initial text = {}] {$q_0$};
+        \node (q1) [state, right = of q0] {$q_1$};
+        \node (q2) [state, right = of q1] {$q_2$};
+        \node (q3) [state, right = of q2] {$q_3$};
+
+        \path [-stealth]
+        (q0) edge [loop above] node {$a, b$} ()
+        (q0) edge
+    \end{tikzpicture}
+
 \end{document}
