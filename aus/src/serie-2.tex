@@ -96,9 +96,9 @@
         (q1) edge [bend left, above right] node {$b, c$} (q4)
         (q2) edge [above] node {$a, c$} (q4)
         (q3) edge [bend right, below right] node {$a, b$} (q4)
-    \end{tikzpicture} \\
+    \end{tikzpicture}
 
-    $ \mathcal{A}_ 2 $ \\
+    $ \mathcal{A}_ 2 $
 
     \begin{tikzpicture} [node distance = 2.5cm, on grid]
         \node (q0) [state, initial, initial text = {}] {$q_0$};
@@ -126,15 +126,92 @@
         (q2) edge [below] node {$b$} (q5)
     \end{tikzpicture}
 
-    \begin{tikzpicture} [node distance = 2cm, on grid]
-        \node (q0) [state, initial, initial text = {}] {$q_0$};
-        \node (q1) [state, right = of q0] {$q_1$};
-        \node (q2) [state, right = of q1] {$q_2$};
-        \node (q3) [state, right = of q2] {$q_3$};
+    \newpage
 
-        \path [-stealth]
-        (q0) edge [loop above] node {$a, b$} ()
-        (q0) edge
-    \end{tikzpicture}
+    \Aufgabe{5}
+    \begin{enumerate}[(a)]
+        \item
+        \begin{tikzpicture} [node distance = 2cm, on grid]
+            \node (q0) [state, initial, initial text = {}] {$q_0$};
+            \node (q1) [state, right = of q0] {$q_1$};
+            \node (q2) [state, right = of q1] {$q_2$};
+            \node (q3) [state, accepting, right = of q2] {$q_3$};
+
+            \path [-stealth]
+            (q0) edge [loop above] node {$a, b$} ()
+            (q0) edge [above] node {$a$} (q1)
+            (q1) edge [above] node {$b$} (q2)
+            (q2) edge [above] node {$b$} (q3)
+        \end{tikzpicture}
+
+        \item \mbox{} \\ \\
+        \setlength{\tabcolsep}{10pt}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{ c|c|c }
+              & a & b \\
+            \hline
+            $\{q_0\}$ & $\{q_0, q_1\}$ & $\{q_0\}$ \\
+            $\{q_0, q_1\}$ & $\{q_0, q_1\}$ & $\{q_0, q_2\}$ \\
+            $\{q_0, q_2\}$ & $\{q_0, q_1\}$ & $\{q_0, q_3\}$ \\
+            $\{q_0, q_3\}$ & $\{q_0, q_1\}$ & $\{q_0\}$ \\
+        \end{tabular} \bigskip
+
+        $ \Rightarrow \mathcal{P} = \{Q', \Sigma, S_0, \Delta', F'\} $ \\
+        $ Q' = \{S_0, S_1, S_2, S_3\}, F' = \{S_3\} $ \\
+        $ \Delta' = \{(S_0, a, S_1), (S_0, b, S_0), (S_1, a, S_1), (S_1, b, S_1),
+        (S_2, a, S_1), (S_2, b, S_3), (S_3, a, S_1), (S_3, b, S_0)\} $ \\ \\
+
+        \begin{tikzpicture} [node distance = 2cm, on grid]
+            \node (S0) [state, initial, initial text = {}] {$S_0$};
+            \node (S1) [state, right = of q0] {$S_1$};
+            \node (S2) [state, right = of q1] {$S_2$};
+            \node (S3) [state, accepting, right = of q2] {$S_3$};
+
+            \path [-stealth]
+            (S0) edge [loop above] node {$b$} ()
+            (S0) edge [above] node {$a$} (S1)
+            (S1) edge [loop above] node {$a$} ()
+            (S1) edge [bend left, above] node {$b$} (S2)
+            (S2) edge [bend left, above] node {$a$} (S1)
+            (S2) edge [above] node {$b$} (S3)
+            (S3) edge [below, bend left=50] node {$a$} (S1)
+            (S3) edge [below, bend left=60] node {$b$} (S0)
+        \end{tikzpicture}
+    \end{enumerate}
+    
+    \Aufgabe{6}
+    \begin{enumerate} [(a)]
+        \item
+        \begin{tikzpicture} [node distance = 2.5cm, on grid]
+            \node (q0) [state, initial, initial text = {}] {$q_0$};
+            \node (q1) [state, right = of q0] {$q_1$};
+            \node (q2) [state, below left = of q1] {$q_3$};
+            \node (q3) [state, below right = of q1] {$q_4$};
+            \node (q4) [state, accepting, right = of q1] {$q_4$};
+
+            \path [-stealth]
+            (q0) edge [above] node {$\epsilon$} (q1)
+            (q1) edge [above left] node {$a$} (q2)
+            (q2) edge [above] node {$b$} (q3)
+            (q3) edge [above] node {$c$} (q1)
+            (q1) edge [bend left, above] node {$\epsilon$} (q4)
+            (q4) edge [bend left, above] node {$a$} (q1)
+        \end{tikzpicture}
+
+        \item
+        \begin{tikzpicture} [node distance = 2cm, on grid]
+            \node (q0) [state, initial, initial text = {}, accepting] {$q_0$};
+            \node (q1) [state, right = of q0] {$q_1$};
+            \node (q2) [state, right = of q1] {$q_2$};
+
+            \path [-stealth]
+            (q0) edge [loop above] node {$a, c$} ()
+            (q0) edge [above] node {$a$} (q1)
+            (q1) edge [above] node {$b$} (q2)
+            (q2) edge [bend left=40, below] node {$c$} (q0)
+        \end{tikzpicture}
+    \end{enumerate}
+
+    \Aufgabe{7} \\
 
 \end{document}
