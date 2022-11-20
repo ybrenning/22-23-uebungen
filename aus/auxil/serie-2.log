@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.17)  20 NOV 2022 19:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.17)  20 NOV 2022 22:46
 entering extended mode
 **./serie-2.tex
 (serie-2.tex
@@ -1205,7 +1205,27 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[2] [3] (C:/Users\yanni\code\22-23-uebungen\aus\out\serie-2.aux)
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 215--222
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--232
+
+ []
+
+[3] (C:/Users\yanni\code\22-23-uebungen\aus\out\serie-2.aux)
 Package rerunfilecheck Info: File `serie-2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
@@ -1224,14 +1244,17 @@ Here is how much of TeX's memory you used:
 pen/ec/dpi600\ecrm1200.pk><C:/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/yanni/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/yanni/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/yanni/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/yanni/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/ya
-nni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/yanni/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/yanni/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/yan
+ni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/U
+sers/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.
+pfb><C:/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmti8.pfb>
 Output written on C:/Users\yanni\code\22-23-uebungen\aus\out\serie-2.pdf (3 pag
-es, 95270 bytes).
+es, 126064 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
+ 178 PDF objects out of 1000 (max. 8388607)
  8 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

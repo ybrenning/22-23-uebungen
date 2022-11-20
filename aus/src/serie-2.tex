@@ -144,16 +144,16 @@
             (q2) edge [above] node {$b$} (q3)
         \end{tikzpicture}
 
-        \item \mbox{} \\ \\
+        \item Potenzmengenkonstruktion: \mbox{} \\ \\
         \setlength{\tabcolsep}{10pt}
         \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{ c|c|c }
               & a & b \\
             \hline
-            $\{q_0\}$ & $\{q_0, q_1\}$ & $\{q_0\}$ \\
-            $\{q_0, q_1\}$ & $\{q_0, q_1\}$ & $\{q_0, q_2\}$ \\
-            $\{q_0, q_2\}$ & $\{q_0, q_1\}$ & $\{q_0, q_3\}$ \\
-            $\{q_0, q_3\}$ & $\{q_0, q_1\}$ & $\{q_0\}$ \\
+            $S_0 = \{q_0\}$ & $\{q_0, q_1\}$ & $\{q_0\}$ \\
+            $S_1 = \{q_0, q_1\}$ & $\{q_0, q_1\}$ & $\{q_0, q_2\}$ \\
+            $S_2 = \{q_0, q_2\}$ & $\{q_0, q_1\}$ & $\{q_0, q_3\}$ \\
+            $S_3 = \{q_0, q_3\}$ & $\{q_0, q_1\}$ & $\{q_0\}$ \\
         \end{tabular} \bigskip
 
         $ \Rightarrow \mathcal{P} = \{Q', \Sigma, S_0, \Delta', F'\} $ \\
@@ -185,15 +185,15 @@
         \begin{tikzpicture} [node distance = 2.5cm, on grid]
             \node (q0) [state, initial, initial text = {}] {$q_0$};
             \node (q1) [state, right = of q0] {$q_1$};
-            \node (q2) [state, below left = of q1] {$q_3$};
-            \node (q3) [state, below right = of q1] {$q_4$};
+            \node (q2) [state, below left = of q1] {$q_2$};
+            \node (q3) [state, below right = of q1] {$q_3$};
             \node (q4) [state, accepting, right = of q1] {$q_4$};
 
             \path [-stealth]
             (q0) edge [above] node {$\epsilon$} (q1)
             (q1) edge [above left] node {$a$} (q2)
             (q2) edge [above] node {$b$} (q3)
-            (q3) edge [above] node {$c$} (q1)
+            (q3) edge [right] node {$c$} (q1)
             (q1) edge [bend left, above] node {$\epsilon$} (q4)
             (q4) edge [bend left, above] node {$a$} (q1)
         \end{tikzpicture}
@@ -213,5 +213,21 @@
     \end{enumerate}
 
     \Aufgabe{7} \\
+    Wir beweisen: $ L $ ist nicht erkennbar.
+    Wir f"uhren einen direkten Beweis: \\
+    Sei $ n_0 $ eine beliebige nat"urliche Zahl mit $ n_0 \geq 1 $. \\
+    Wir w"ahlen $ w = v \cdot v^R $ mit $ v = a^{n_0} b, v^R = b a^{n_0} $.
+    Es gilt $ w \in L $ und $ |w| \geq n_0 $. \\
+    Sei $ w = xyz $ eine beliebige Zerlegung mit $ y \neq \epsilon, |xy| \leq n_0 $. \\
+
+    F"ur diese Zerlegung gilt: \\
+    Da $ |xy| \leq n_0 $, besteht $ xy $ nur aus $ a $s, und es besteht $ y \neq \epsilon $ auch nur aus mindestens $ a $,
+    sodass $ |y| > 0$. \\ \\
+    F"ur $ k = 2 $ gilt also $ xy^k z = a^{n_0 + |y|} b \cdot b a^{n_0} $. \\
+    Es gilt f"ur die obige Zerlegung nicht mehr $ w = v \cdot v^R $, da $ v $ links mehr $ a $s enth"alt als $ v^R $ rechts.
+    Dies widerspricht allerdings der geg. Definition des Spiegelwortes,
+    n"amlich dass ein beliebiges Spiegelwort $ w^R $ alle Buchstaben von $ w $ enthalten muss. \\ \\
+    Somit ist das Wort nicht in der Sprache und f"ur $ k = 2 $ gilt $ xy^k z \notin L $. \\ \\
+    Da $ n_0 $ und die Zerlegung $ xyz $ beliebig sind, folgt durch das Pumping-Lemma im Kontrapositiv: $ L $ ist nicht erkennbar.
 
 \end{document}
