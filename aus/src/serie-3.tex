@@ -75,7 +75,7 @@
     \end{center}
     \vspace*{0.2cm}
 
-    \Aufgabe{5} \\
+    \Aufgabe{5}
     \begin{enumerate}[(a)]
         \item
         $ r_1 = a^* + b^* + ((a + b)^* \cdot (a + bb))^* $ \\ \\
@@ -108,5 +108,56 @@
         (q1) edge [below, bend left] node {$\epsilon$} (q0)
         (q0) edge [below, bend right = 80] node {$\epsilon$} (q1)
     \end{tikzpicture}
+
+    \newpage
+
+    \Aufgabe{7} \\
+    $ L(\mathcal{A}) = \bigcup_{q_f \in F}^{} L_{q_0, q_f}^Q = L_{1, 1}^Q $ \\
+
+    \textbf{Induktionsanfang}
+    \begin{flalign*}
+        L_{1, 2}^{\emptyset} = b, L_{1, 1}^{\emptyset} = b + \epsilon && \\
+        L_{2, 1}^{\emptyset} = a + b, L_{2, 2}^{\emptyset} = \epsilon
+    \end{flalign*}
+    
+    \textbf{Induktionsschritt}
+    \begin{flalign*}
+        L_{1, 1}^Q & = L_{1, 1}^{\{1\}} \cup L_{1, 1}^{\{1\}} \cdot (L_{1, 1}^{\{1\}})^* \cdot L_{1, 1}^{\{1\}} && \\ \\
+        L_{1, 1}^{\{2\}} & = L_{1, 1}^{\emptyset} \cup L_{1, 2}^{\emptyset} \cdot (L_{2, 2}^{\emptyset})^* \cdot L_{2, 1}^{\emptyset} && \\
+        & = b + \epsilon + b \cdot (\epsilon)^* \cdot a + b && \\
+        & = \epsilon + ba + b
+    \end{flalign*}
+
+    \begin{flalign*}
+        \Rightarrow L_{1, 1}^Q & = (\epsilon + ba + b) + (\epsilon + ba + b) (\epsilon + ba + b)^* (\epsilon + ba + b) && \\
+        & = (\epsilon + ba + b)^* && \\
+        & = (ba + b)^*
+    \end{flalign*}
+    $ \Rightarrow r = (ba + b)^*, L(r) = L(\mathcal{A}) $
+
+    \newpage
+
+    \Aufgabe{8} \\
+    Zu beweisen: \\
+    Es gibt einen DEA $ \mathcal{A}, L(\mathcal{A}) = L $ \\
+    $ \Rightarrow $ Es gibt einen DEA $ \mathcal{A}', L(\mathcal{A}') = \text{minimal}(L) $ \\ \\
+    Wenn ein beliebiger Automat $ \mathcal{A} $ die Sprache $ L $ erkennt, dann l"asst sich aus diesem Automaten ein
+    Automat $ \mathcal{A}' $ konstruieren, welcher die Sprache $ \text{minimal}(L) $ erkennt.
+    Das Prinzip funktioniert wie folgt: wenn ein Automat $ \mathcal{A} = \{Q, \Sigma, q_0, \Delta, F\} $ einen akzeptierenden Zustand hat, welcher hinter bzw.
+    nach einem anderen akzeptierenden Zustand liegt, dann wird dieser im Automat $ \mathcal{A}' = \{Q, \Sigma, q_0, \Delta, F'\}$
+    aus der Menge $ F $ der akzeptierenden Zust"anden von $ \mathcal{A} $ entfernt.
+    In dem Fall w"urde das bedeuten, dass dieser entfernte akzeptierende Zustand in $ \mathcal{A} $ ein Wort akzeptieren w"urde,
+    welches ein Pr"afix h"atte, was ebenfalls in der Sprache $ L(\mathcal{A}) $ liegt und somit nicht in der Sprache $ \text{minimal}(L) $
+    enthalten sein darf. \\ \\
+
+    Die neue Menge $ F' $ der akzeptierenden Zust"ande kann wie folgt ausgedr"uckt werden: \\ \\
+    $ F = \{f \in F \; | \; \text{F"ur alle } w \in \Sigma^* \text{ gibt es keinen Pfad von } $ \\
+            $ q_0 \text{ nach } f \text{ wo ein weiterer Finalzustand } f' \text{ im Lauf enthalten ist} \} $ \\ \\
+
+    Das Wort $ aab $ aus dem geg. Beispiel hat als Pr"afix $ a $, welches in $ L $ enthalten ist und somit nicht
+    in $ \text{minimal}(L) $ enthalten ist. \\
+    Somit l"asst sich also aus jedem Automaten $ \mathcal{A} $ mit $ L(\mathcal{A}) = L $ ein Automat $ \mathcal{A}' $
+    mit $ L(\mathcal{A}') = \text{minimal}(L) $ konstruieren. \\ \\
+    Es gilt also: $ L $ erkennbar $ \Rightarrow $ $ \text{minimal}(L) $ erkennbar.
 
 \end{document}

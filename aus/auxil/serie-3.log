@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.18)  3 DEC 2022 17:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.18)  4 DEC 2022 23:47
 entering extended mode
 **./serie-3.tex
 (serie-3.tex
@@ -1006,12 +1006,8 @@ LaTeX Info: Redefining \nameref on input line 68.
 \@outlinefile=\write4
 \openout4 = `serie-3.out'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-
- []
-
 LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+
 
 (C:\Users\yanni\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1068,16 +1064,55 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{C:/Users/yanni/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
 ]
-(C:/Users\yanni\code\22-23-uebungen\aus\auxil\serie-3.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 140--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--162
+
+ []
+
+[3] (C:/Users\yanni\code\22-23-uebungen\aus\auxil\serie-3.aux)
 Package rerunfilecheck Info: File `serie-3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24196 strings out of 478927
- 446027 string characters out of 2852534
+ 24202 strings out of 478927
+ 446079 string characters out of 2852534
  941303 words of memory out of 3000000
- 41595 multiletter control sequences out of 15000+600000
- 412982 words of font info for 53 fonts, out of 8000000 for 9000
+ 41597 multiletter control sequences out of 15000+600000
+ 414512 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,11n,89p,448b,816s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\yanni\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
@@ -1085,18 +1120,23 @@ Here is how much of TeX's memory you used:
 0\ecbx2074.pk> <C:\Users\yanni\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
 /dpi600\ecrm1095.pk> <C:\Users\yanni\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ecrm1200.pk><C:/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/yanni/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/yanni/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/yanni/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/yanni/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/ya
-nni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:
-/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8
-.pfb>
-Output written on C:/Users\yanni\code\22-23-uebungen\aus\out\serie-3.pdf (1 pag
-e, 102377 bytes).
+ype1/public/amsfonts/cm/cmex10.pfb><C:/Users/yanni/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/yanni/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/yanni/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/yanni/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ya
+nni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/U
+sers/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><C:/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb><C:/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmti12.pfb><C:/Users/yanni/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmti7.pfb><C:/Users/yanni/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/yanni/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on C:/Users\yanni\code\22-23-uebungen\aus\out\serie-3.pdf (3 pag
+es, 153591 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 4 named destinations out of 1000 (max. 500000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 6 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
