@@ -27,7 +27,7 @@
 \newcommand{\Seminargruppe}{C}
 \newcommand{\Matrikelnummer}{3732848, 3796826}
 \newcommand{\Semester}{WiSe 22/23}
-\newcommand{\Uebungsblatt}{3}
+\newcommand{\Uebungsblatt}{4}
 
 \setlength{\parindent}{0em}
 \topmargin -1.0cm
@@ -75,7 +75,7 @@
     \end{center}
     \vspace*{0.2cm}
 
-    \Aufgabe{5} \\
+    \Aufgabe{4} \\
     Wir konstruieren den Produktautomaten $ \mathcal{A} $, sodass $ L(\mathcal{A}) = L(\mathcal{A}_1 \cap L(\mathcal{A}_1)) $. \\ \\
     F"ur den Produktautomaten $ \mathcal{A} $ gilt: \\ \\
     $ \mathcal{A} = (Q_1 \times Q_2, \Sigma, (q_{01}, q_{02}), \Delta, F_1 \times F_2) $ \\
@@ -86,6 +86,147 @@
     $ F = \{(1, C)\} $ \\ \\
     $ \Delta = \{((0, A), a, (0, B)), ((0, B), a, (0 , C)), ((0, C), a (0, A)), $ \\
     $ ((0, A), a, (1, B)), ((0, B), a, (1, C)), ((0, C), a, (1, A)), () $ \\
-    $ ((1, A), b (0, A)), ((1, B), b, (0, B)), ((1, B), b, (0, C)), ((1, C), b, (0, C)) $ \\ \\
+    $ ((1, A), b (0, A)), ((1, B), b, (0, B)), ((1, B), b, (0, C)), ((1, C), b, (0, C))\} $ \\ \\
+
+    \begin{tikzpicture}
+        \node (0A) [state, initial, initial text = {}] {$0, A$};
+        \node (1B) [state, right = of 0A] {$1, B$};
+        \node (0B) [state, right = of 1B] {$0, B$};
+        \node (1C) [state, accepting, right = of 0B] {$1, C$};
+        \node (0C) [state, above = of 1B] {$0, C$};
+        \node (1A) [state, left = of 0C] {$1, A$};
+
+        \path [-stealth]
+        (0A) edge [above] node {$a$} (1B)
+        (0A) edge [below, bend right = 60] node {$a$} (0B)
+        (1B) edge [above] node {$b$} (0B)
+        (1B) edge [left] node {$b$} (0C)
+        (0B) edge [above] node {$a$} (0C)
+        (0B) edge [above] node {$a$} (1C)
+        (1C) edge [above] node {$b$} (0C)
+        (0C) edge [above] node {$a$} (1A)
+        (0C) edge [above left] node {$a$} (0A)
+        (1A) edge [left] node {$b$} (0A)
+    \end{tikzpicture}
+
+    \newpage
+
+    \Aufgabe{5}
+
+    Zun"achst werden die unerreichbaren Zust"ande aus dem Automaten entfernt: \\
+
+    \begin{tikzpicture} [node distance = 2cm, on grid]
+        \node (0) [state, initial, initial text = {}] {$0$};
+        \node (1) [state, below = of 0] {$1$};
+        \node (2) [state, accepting, below = of 1] {$2$};
+        \node (3) [state, accepting, right = of 0] {$3$};
+        \node (4) [state, below = of 3] {$4$};
+        \node (5) [state, accepting, below = of 4] {$5$};
+        \node (6) [state, right = of 3] {$6$};
+        \node (8) [state, right = of 5] {$8$};
+
+        \path [-stealth]
+        (0) edge [above] node {$a$} (3)
+        (0) edge [right] node {$b$} (1)
+        (1) edge [loop left] node {$b$} ()
+        (1) edge [right] node {$a$} (2)
+        (2) edge [above left] node {$a$} (4)
+        (2) edge [below, bend right = 50] node {$b$} (8)
+        (3) edge [left, bend right] node {$a, b$} (4)
+        (4) edge [right, bend right] node {$a$} (3)
+        (4) edge [above left, bend right] node {$b$} (6)
+        (5) edge [above, bend left] node {$a, b$} (8)
+        (6) edge [loop right] node {$b$} ()
+        (6) edge [above, bend right = 50] node {$a$} (0)
+        (8) edge [below] node {$a$} (5)
+    \end{tikzpicture}
+
+    \begin{itemize}
+        \item $ \sim_0 $ hat die Klassen $ F = \{2, 3, 5\} $ und $ Q \setminus F = \{0, 1, 4, 6, 8\} $
+        \item Zwischenschritte f"ur $ \sim_1 $: \\
+        $ 2 \sim_1 3 \Leftrightarrow 2 \sim_0 3 \land \forall a \in (a, b): \delta(2, a) \sim_0 \delta(3, a) $ \\
+        $ \Rightarrow 4 \sim_0 4 $ und $ 4 \sim_0 8 $ \\ \\
+
+        $ 3 \sim_1 5 \Leftrightarrow 3 \sim_0 5 \land \forall a \in (a, b): \delta(3, a) \sim_0 \delta(5, a) $ \\
+        $ \Rightarrow 4 \sim_0 8 $ \\ \\
+
+        $ 4 \sim_1 8 \Leftrightarrow 4 \sim_0 8 \land \forall a \in (a, b): \delta(4, a) \sim_0 \delta(8, a) $ \\
+        $ \Leftrightarrow 3 \sim_0 5 $ und $ 6 \sim_0 6 $ \\ \\
+
+        $ 0 \sim_1 1 \Leftrightarrow 0 \sim_0 1 \land \forall a \in (a, b): \delta(0, a) \sim_0 \delta(1, a) $ \\
+        $ \Rightarrow 3 \sim_0 2 $ und $ 1 \sim_0 1 $ \\ \\
+
+        $ 1 \sim_1 4 \Leftrightarrow 1 \sim_0 4 \land \forall a \in (a, b): \delta(1, a) \sim_0 \delta(4, a) $ \\
+        $ \Rightarrow 2 \sim_0 3 $ und $ 1 \sim_0 6 $ \\ \\
+
+        $ 4 \sim_1 6 \Leftrightarrow 4 \sim_0 6 \land \forall a \in (a, b): \delta(4, a) \sim_0 \delta(6, a) $ \\
+        $ \Rightarrow 3 \sim_0 0 $ gilt nicht \\ \\
+
+        $ 4 \sim_1 8 \Leftrightarrow 4 \sim_0 8 \land \forall a \in (a, b): \delta(4, a) \sim_0 \delta(8, a) $ \\
+        $ \Rightarrow 3 \sim_0 5 $ und  $ 6 \sim_0 6 $ \\ \\
+        $ \Rightarrow \sim_1 $ hat die Klassen $ \{2, 3, 5\}, \{0, 1, 4, 8\}, \{6\} $
+
+        \item Zwischenschritte f"ur $ \sim_2 $: \\
+        $ 0 \sim_2 1 \Leftrightarrow 0 \sim_1 1 \land \forall a \in (a, b): \delta(0, a) \sim_1 \delta(1, a) $ \\
+        $ \Rightarrow 3 \sim_1 2 $ und  $ 1 \sim_1 1 $ \\ \\
+
+        $ 1 \sim_2 4 \Leftrightarrow 1 \sim_1 4 \land \forall a \in (a, b): \delta(1, a) \sim_1 \delta(4, a) $ \\
+        $ \Rightarrow 1 \sim_1 6 $ gilt nicht \\ \\
+
+        $ 4 \sim_2 8 \Leftrightarrow 4 \sim_1 8 \land \forall a \in (a, b): \delta(4, a) \sim_1 \delta(8, a) $ \\
+        $ \Rightarrow 3 \sim_1 5 $ und  $ 6 \sim_1 6 $ \\ \\
+
+        $ \Rightarrow \sim_2 $ hat die Klassen $ \{2, 3, 5\}, \{0, 1\}, \{4, 8\}, \{6\} $
+
+        \item $ \sim_3 = \sim_2 \Rightarrow \sim_{\mathcal{A}} $
+    \end{itemize}
+
+    Quotientenautomat $ \mathcal{A} $:
+    \begin{tikzpicture} [node distance = 2cm, on grid]
+        \node (01) [state, initial, initial text = {}] {$0, 1$};
+        \node (6) [state, above = of 01] {$6$};
+        \node (48) [state, right = of 6] {$4, 8$};
+        \node (235) [state, accepting, right = of 01] {$2, 3, 5$};
+
+        \path [-stealth]
+        (01) edge [above] node {$a$} (235)
+        (0) edge [loop below] node {$b$} ()
+        (235) edge [left, bend left] node {$a, b$} (48)
+        (48) edge [right, bend left] node {$a$} (235)
+        (48) edge [above] node {$b$} (6)
+        (6) edge [left] node {$a$} (01)
+        (6) edge [loop above] node {$b$} ()
+    \end{tikzpicture}
+
+    \Aufgabe{6}
+    \begin{enumerate}[(a)]
+        \item
+        Die Sprache $ L_1 $ hat die folgenden Nerode-"Aquivalenzrelationen: \\
+        \begin{itemize}
+            \item $ [\epsilon]_{L_1} = \{v \in \Sigma^* \; | \; vw \in L \text{ f"ur kein } w \in \Sigma^*\} = \epsilon $
+            \item $ [a]_{L_1} = \{v \in \Sigma^* \; | \; vw \in L \text{ gdw. } w \in \Sigma^*\} = (a + b)^* \cdot (a + b) \cdot (a + b)^* $
+        \end{itemize}
+        Somit hat die Nerode-Rechtskongruenz von $ L_1 $ einen Index von zwei.
+        Nach dem Satz von Myhill und Nerode ist $ L_1 $ somit erkennbar.
+
+    \end{enumerate}
+
+    \Aufgabe{7} \\
+    Eine Sprache, die $ \epsilon $ nicht enthält, kann immer durch einen NEA mit einem Endzustand dargestellt werden. \\
+    Eine Sprache, die $ \epsilon $ enthält, kann immer durch einen NEA mit zwei Endzuständen dargestellt werden. \\ \\
+
+    Dies kann man mit Hilfe der $ \epsilon $-Elimination beweisen. \\ \\
+
+    Mann kann einen NEA mit mehr als 2 Endzuständen in einen $ \epsilon $-NEA mit nur einem Endzustand wie folgt umwandeln: \\
+    - Füge einen neuen Zustand hinzu.
+    Dieser wird als einziger zum Endzustand. \\
+    - Alle bisherigen Endzustände erhalten  $ \epsilon $-Übergänge in den neuen Zustand. \\ \\
+
+    Nun wendet man die $ \epsilon $-Elimination auf den entstandenen $ \epsilon $-NEA an um ihn wieder in einen NEA ohne $ \epsilon $-Übergänge zurückzuwandeln. \\
+    Ausnamhe: Wenn $ \epsilon $ in der Sprache enthalten ist, dann wird auch der Startzustand ebenfalls zum Endzustand. \\
+
+    Fazit: \\
+    Wenn $ \epsilon $ nicht in der Sprache enthalten ist, dann hat man nach wie vor nur einen Endzustand.
+    Wenn $ \epsilon $ in der Sprache enthalten ist, dann kommt ein zweiter hinzu.
 
 \end{document}
