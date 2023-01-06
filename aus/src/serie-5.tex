@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows.meta, positioning, calc}
+
+\newcommand{\Fach}{Automaten und Sprachen}
+\newcommand{\Name}{Yannick Brenning, Jean R"other}
+\newcommand{\Seminargruppe}{C}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{5}
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{Hausaufgabe #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+    keepspaces,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+\thispagestyle{fancy}
+\lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+\rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+\vspace*{0.2cm}
+\begin{center}
+    \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+\end{center}
+\vspace*{0.2cm}
+
+\Aufgabe{4} \\
+% \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+%     \hline
+%     \lstinline|var| & \lstinline|:=| & \lstinline|zahl| & \lstinline|;| &  \lstinline|repeat| & \lstinline|var| & \lstinline|:=| & \lstinline|(| & \lstinline|var| & \lstinline|+| & \lstinline|zahl| & \lstinline|)| & \lstinline|until| & \lstinline|var| & \lstinline|=| & \lstinline|var| & \lstinline|end| \\
+%     \hline
+%     \lstinline|TERM| &   & \lstinline|TERM| &   &   & \lstinline|TERM| &   &   & \lstinline|TERM| &   &  \lstinline|TERM| &   &   &  \lstinline|TERM| &   & \lstinline|TERM| &   \\  
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%     \lstinline|PROG|  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   & \lstinline|TERM|  &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   & \lstinline|PROG|  &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   & \lstinline|PROG|  &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%        &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+%      \lstinline|PROG|  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+%     \hline
+% \end{tabular} \\
+
+$ w_1 \in L(G) $, da die Ableitung: \\
+$ \text{\lstinline|PROG|} \rightarrow \text{\lstinline|PROG ; PROG|} \rightarrow \text{\lstinline|var := TERM ; PROG|} $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; PROG|} \rightarrow \text{\lstinline|var := zahl ; repeat PROG until TERM = TERM end|} $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; repeat var := TERM until TERM = TERM end |} $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; repeat var := (TERM + TERM) until TERM = TERM end |}  $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; repeat var := (var + TERM) until TERM = TERM end |}  $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; repeat var := (var + zahl) until TERM = TERM end |}  $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; repeat var := (var + zahl) until var = TERM end |}  $ \\
+$ \rightarrow \text{\lstinline|var := zahl ; repeat var := (var + zahl) until var = var end |}  $ \\
+f"ur $ w_1 $ existiert. \\ 
+
+$ w_2 \notin L(G) $, da dieses Wort Symbole erh"alt, die Nichtterminale Symbole in  $ G $ sind. 
+Somit kann keine Ableitung f"ur $ w_2 $ durch diese Grammatik existieren. \\
+
+$ w_3 \notin L(G) $, da die einzige Produktion in $ G $, welche \lstinline|if| erzeugen kann auch ein \lstinline|else| voraussetzt, was in diesem Wort nicht gegeben ist.
+Somit kann keine Ableitung f"ur $ w_3 $ durch diese Grammatik existieren.
+
+\newpage
+
+$ w_4 \notin L(G) $, da das Wort ein Symbol enh"alt ($ - $), welches nicht in der Menge der Terminalsymbole $ \Sigma $ der Grammatik $ G $ enthalten ist.
+\end{document}
