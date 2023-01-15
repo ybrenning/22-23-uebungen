@@ -76,7 +76,7 @@
 \end{center}
 \vspace*{0.2cm}
 
-\Aufgabe{4} \\
+\Aufgabe{4}
 % \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
 %     \hline
 %     \lstinline|var| & \lstinline|:=| & \lstinline|zahl| & \lstinline|;| &  \lstinline|repeat| & \lstinline|var| & \lstinline|:=| & \lstinline|(| & \lstinline|var| & \lstinline|+| & \lstinline|zahl| & \lstinline|)| & \lstinline|until| & \lstinline|var| & \lstinline|=| & \lstinline|var| & \lstinline|end| \\
@@ -138,21 +138,89 @@ $ w_4 \notin L(G) $, da das Wort ein Symbol enh"alt ($ - $), welches nicht in de
 
 \Aufgabe{5} \\
 $ G_1 = (N, \Sigma, P, S) $ mit $ N = \{S, A, B\}, \Sigma = \{a, b\} $ und \\
-$ P = \{S \rightarrow aA, $ \\
-$ S \rightarrow bA, $ \\
-$ S \rightarrow BabB $ \\
-$ A \rightarrow a, $ \\
-$ A \rightarrow b, $ \\
-$ A \rightarrow aS, $ \\
-$ A \rightarrow bS $ \\
-$ B \rightarrow \epsilon $ \\
-$ B \rightarrow a $ \\
-$ B \rightarrow b $ \\
-$ B \rightarrow S \} $ \\
-\newpage
+$ P = \{ S \rightarrow aSb \mid aB \mid bA \mid C$ \\
+$A \rightarrow aA \mid a$ \\
+$B \rightarrow bB \mid b$ \\
+$C \rightarrow \epsilon \mid CC \} $ \\
 
 $ G_2 = (M, \Sigma, P, S) $ mit $ N = \{S\}, \Sigma = \{a, b\} $ und 
-$ P = \{S \rightarrow aSb^{3} \mid b^{2}\} $
+$ P = \{S \rightarrow aSbbb \mid bb\} $ \\
 
+$ G_3 = (M, \Sigma, P, S) $ mit $ N = \{S\}, \Sigma = \{a, b\} $ und \\
+$ P = \{ S \rightarrow aSb \mid Ab \mid Ba \mid aA \mid bB $
+$ A \rightarrow aA \mid a $
+$ B \rightarrow bB \mid b \} $
+\newpage
+
+\Aufgabe{6}
+
+\begin{enumerate}[(a)]
+    \item 
+    $ \epsilon $ - "Uberg"ange entfernen: \\
+    $ N_1 = \{S, V\}, N_2 = \{S, V, T\}, N_3 = \{S, V, T\} $ \\
+
+    Resultierende Grammatik $ G_1 = (\{S, T, U ,V\}, \{a, b\}, P_1, S_0) $ mit \\
+    $ P_1 = \{ S_0 \rightarrow S \mid \epsilon $ \\
+    $ S \rightarrow aSb \mid ab \mid T $ \\
+    $ T \rightarrow V $ \\
+    $ V \rightarrow bSa \mid ba \} $
+
+    \item 
+    Kettenregeln entfernen: \\
+    $ K_0 = \{(S_0, S_0), (S, S), (T, T), (V, V)\} $ \\
+    $ K_1 = \{(S_0, S_0), (S, S), (T, T), (V, V), (S_0, S), (S, T), (T, V)\} $ \\
+    $ K_2 = \{(S_0, S_0), (S, S), (T, T), (V, V), (S_0, S), (S, T), (T, V), (S_0, T), (S, V)\} $ \\
+    $ K_3 = \{(S_0, S_0), (S, S), (T, T), (V, V), (S_0, S), (S, T), (T, V), (S_0, T), (S, V), (S_0, V)\} $ \\
+    $ K_4 = \{(S_0, S_0), (S, S), (T, T), (V, V), (S_0, S), (S, T), (T, V), (S_0, T), (S, V), (S_0, V)\} $ \\
+
+    Resultierende Grammatik $ G_2  = (\{S, T, U ,V\}, \{a, b\}, P_2, S_0) $ mit \\
+    $ P_2 = \{ S_0 \rightarrow \epsilon \mid aSb \mid ab \mid bSa \mid ba $ \\
+    $ S \rightarrow aSb \mid ab \mid bSa \mid ba $ \\
+    $ T \rightarrow bSa \mid ba $ \\
+    $ V \rightarrow bSa \mid ba \}$
+
+    \item 
+    Chomsky-Normalform: \\
+    Resultierende Grammatik $ G_3 = (\{S, T, U, V, C_1, C_2, X_a, X_b\}, \{a, b\}, P_3, S_0) $ mit \\
+    $ P_3 = \{ S_0 \rightarrow \epsilon \mid X_a C_1 \mid X_a X_b \mid X_b C_2 \mid X_b X_a $ \\
+    $ S \rightarrow X_a C_1 \mid X_a X_b \mid X_b C_2 \mid X_b X_a $ \\
+    $ T \rightarrow X_b C_1 \mid X_b X_a $ \\
+    $ V \rightarrow X_b C_1 \mid X_b X_a $ \\
+    $ C_1 \rightarrow S X_b $ \\
+    $ C_2 \rightarrow S X_a $ \\
+    $ X_a \rightarrow a $ \\
+    $ X_b \rightarrow b \} $
+
+\end{enumerate}
+
+\Aufgabe{7} 
+
+\begin{enumerate}[(a)]
+    \item 
+    $ G_1 = (\{S, A, B\}, \{a, b\}, P_1, S) $ mit \\
+    $ P_1 = \{S \rightarrow aA \mid bB, A \rightarrow aA \mid bA \mid b, B \rightarrow aB \mid bB \mid b\} $
+
+    \newpage
+
+    \item
+    \textbf{Induktionsanfang}: \\
+    F"ur jede Ableitung in einer Grammatik $ G_0 $ der L"ange 1 existiert eine 
+    "aquivalente Ableitung in $ G_1 $, welche ebenfalls die L"ange 1 hat.
+
+    Man betrachte den Basisfall $ G_0 = (\{S\}, \{a\}, \{S \rightarrow a\}, S) $. \\
+    Dann ist die dazu "aquivalente rechtslineare Grammatik $ G_1 = (\{S\}, \{a\}, \{S \rightarrow a\}, S) $. \\
+    $ \Rightarrow |S \vdash^*_{G_0} w| = |S \vdash^*_{G_1} w| = 1 $ \\
+
+    \textbf{Induktionsschritt}: \\
+    Es sei $ G_0 $ eine linkslineare Grammatik und $ w \in L(G_0) $. \\
+    Es existiert eine Ableitung von $ w $ in $ G_0 $: \\
+    $ S = B_0 \vdash_{G_0} w_1 B_1 \vdash_{G_0} w_2 B_2 \vdash_{G_0} ... \vdash_{G_0} w $ \\
+
+    Eine "aquivalente rechtslineare Ableitung kann erstellt werden, indem die Reihenfolge der Produktionsregeln
+    umgekehrt wird, sodass: \\
+    $ S = B_0 \dashv_{G_0} w_1 B_1 \dashv_{G_0} w_2 B_2 \dashv_{G_0} ... \dashv_{G_0} w $ \\
+
+    Somit existiert f"ur jede linkslineare Grammatik $ G_0 $ eine "aquivalente rechtslineare Grammatik $ G_1 $. 
+\end{enumerate}
 
 \end{document}
