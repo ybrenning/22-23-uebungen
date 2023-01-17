@@ -25,7 +25,7 @@
 \newcommand{\Seminargruppe}{F}
 \newcommand{\Matrikelnummer}{3732848, 3796826}
 \newcommand{\Semester}{WiSe 22/23}
-\newcommand{\Uebungsblatt}{5}
+\newcommand{\Uebungsblatt}{6}
 
 \setlength{\parindent}{0em}
 \topmargin -1.0cm
@@ -73,7 +73,7 @@
     \end{center}
     \vspace*{0.2cm}
 
-    \Aufgabe{1}
+    \Aufgabe{2}
 
     \begin{enumerate}
         \item 
@@ -106,7 +106,21 @@
             & \approx -0.24
         \end{flalign*}
 
-        Der Einsatz ist nicht fair, da der Erwartungswert f"ur unseren Gewinn negativ ist, und somit im Durchschnitt Verlust gemacht wird.
+        Der Einsatz ist nicht fair, da der Erwartungswert f"ur unseren Gewinn negativ ist, und somit im Durchschnitt Verlust gemacht wird. \\
+        Das Spiel ist ``fair'', wenn der Erwartungswert (also der durchschnittliche Gewinn) gleich null ist: \\
+
+        $ \mathbb{E}(X) = 0 $ \\
+        \begin{flalign*}
+            0 & = \frac{1}{8} \cdot (4 - x) + \frac{7}{64} \cdot (2 - x) + \frac{49}{512} \cdot (0.40 - x) + \frac{343}{512} \cdot (0 - x) && \\
+            & = 64 \cdot (4 - x) + 56 \cdot (2 - x) + 49 \cdot (0.40 - x) - 343x && \\
+            & = 256 - 64x + 112 - 56x + \frac{49 \cdot 4}{10} - 49x + 343x && \\
+            & = -512x + 368 + \frac{196}{10} && \\
+            & = -512x + \frac{3680 + 196}{10} && \\
+            & = -512x + \frac{3876}{10} && \\ \\
+            \Rightarrow x & = \frac{3876}{10} \cdot \frac{1}{512} && \\
+            x & = \frac{3876}{5120} && \\
+            x & \approx 0.757
+        \end{flalign*}
 
     \end{enumerate}
 
