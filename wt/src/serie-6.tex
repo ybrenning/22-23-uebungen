@@ -143,6 +143,31 @@
         & = 2.29
     \end{split}
     \end{equation*}
+
+    \item 
+    Der neue Wertebereich ist $ Y \in \{1, 6.76, 9\} $. \\
+    \begin{flalign*}
+        \mathbb{P}(Y = 1) & = \mathbb{P}(X = 3) + \mathbb{P}(X = 1) && \\
+        & = \frac{2}{8} && \\
+        \mathbb{P}(Y = 6.76) & = \mathbb{P}(X = 6.76) && \\
+        & = \frac{1}{8} && \\
+        \mathbb{P}(Y = 9) & = \mathbb{P}(X = -1) && \\
+        & = \frac{5}{8}
+    \end{flalign*}
+
+    \item
+    Anwendung der Transformationsregel mit $ g(X) = (X - 2)^2 $:
+    \begin{equation*}
+    \begin{split}
+        \mathbb{E}(g(X)) & = \sum_{i \in I} g(x_i) \mathbb{P}(X = x_i) \\
+        \Rightarrow \mathbb{E}(Y) & = (3 - 2)^2 \cdot \mathbb{P}(X = 3) + (1 - 2)^2 \cdot \mathbb{P}(X = 1) \\
+        & + (-0.6 - 2)^2 \cdot \mathbb{P}(X = -0.6) + (-1 - 2)^2 \cdot \mathbb{P}(X = -1) \\
+        & = \frac{1 + 1 + 6.76 + 9 \cdot 5}{8} \\
+        & = \frac{53.76}{8} \\
+        & = 6.72
+    \end{split}
+    \end{equation*}
+
     \end{enumerate}
 
 \end{document}
