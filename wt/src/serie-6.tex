@@ -78,17 +78,17 @@
     \begin{enumerate}
         \item 
         Im folgenden sei $ X $ der Gewinn aus einer gespielten Runde, d.h. der Preis abz"uglich des Einsatzes.
-        Somit ergibt sich der Wertebereich $ X \in \{3, 1, -0.60, -1\} $.
+        Somit ergibt sich der Wertebereich $ X \in \{3, 1, -0.6, -1\} $.
         \begin{flalign*}
             \mathbb{P}(X = 3) = \frac{1}{8} &&
         \end{flalign*}
         \begin{flalign*}
             \mathbb{P}(X = 1) & = \frac{7}{8} \cdot \frac{1}{7} && \\
-            & = \frac{7}{56}
+            & = \frac{7}{56} = \frac{1}{8}
         \end{flalign*}
         \begin{flalign*}
-            \mathbb{P}(X = -0.60) & = \frac{7}{8} \cdot \frac{6}{7} \cdot \frac{1}{6} && \\
-            & = \frac{42}{336}
+            \mathbb{P}(X = -0.6) & = \frac{7}{8} \cdot \frac{6}{7} \cdot \frac{1}{6} && \\
+            & = \frac{42}{336} = \frac{1}{8}
         \end{flalign*}
         \begin{flalign*}
             \mathbb{P}(X = -1) & = 1 - \sum_{n = 1}^{3} \mathbb{P}(X = n) && \\
@@ -98,7 +98,7 @@
 
         Nun kann der Erwartungswert anhand der Zufallsvariablen (Gewinn pro Runde) bestimmt werden:
         \begin{flalign*}
-            \mathbb{E}(X) & = \mathbb{P}(X = 3) \cdot 3 + \mathbb{P}(X = 1) \cdot 1 + \mathbb{P}(X = -0.60) \cdot (-0.60) + \mathbb{P}(X = -1) \cdot (-1) && \\
+            \mathbb{E}(X) & = \mathbb{P}(X = 3) \cdot 3 + \mathbb{P}(X = 1) \cdot 1 + \mathbb{P}(X = -0.6) \cdot (-0.6) + \mathbb{P}(X = -1) \cdot (-1) && \\
             & = \frac{1}{8} \cdot 3 + \frac{1}{8} \cdot 1 - \frac{1 \cdot 6}{8 \cdot 10} - \frac{5}{8} && \\
             & = \frac{1}{2} - \frac{6}{80} - \frac{5}{8} && \\
             & = \frac{40}{80} - \frac{6}{80} - \frac{50}{80} && \\
@@ -119,15 +119,15 @@
         \begin{equation*}
         \begin{split}
             \mathbb{E}(X) & = \mathbb{P}(X = (4 - e)) \cdot (4 - e) + \mathbb{P}(X = (2 - e)) \cdot (2 - e) \\ 
-            & + \mathbb{P}(X = (0.40 - e)) \cdot (0.40 - e) + \mathbb{P}(X = 0 - e) \cdot (0 - e) \\ \\
+            & + \mathbb{P}(X = (0.4 - e)) \cdot (0.4 - e) + \mathbb{P}(X = 0 - e) \cdot (0 - e) \\ \\
         \end{split}
         \end{equation*}
         Um einen fairen Einsatz zu bestimmen setzen wir nun den Erwartungswert gleich null:
         \begin{flalign*}
             \mathbb{E}(X) & = 0 && \\
-            \Rightarrow 0 & = \frac{4 - e}{8} + \frac{2 - e}{8} + \frac{0.40 - e}{8} + \frac{-5e}{8} && \\
-            & = \frac{6.40 - 8e}{8} && \\
-            \Leftrightarrow 0 & = 6.40 - 8e && \\
+            \Rightarrow 0 & = \frac{4 - e}{8} + \frac{2 - e}{8} + \frac{0.4 - e}{8} + \frac{-5e}{8} && \\
+            & = \frac{6.4 - 8e}{8} && \\
+            \Leftrightarrow 0 & = 6.4 - 8e && \\
             0.8 & = e 
         \end{flalign*}
 
@@ -137,10 +137,10 @@
     \item 
     \begin{equation*}
     \begin{split}
-        \text{Var}(X) & = \mathbb{P}(X = 3) \cdot (3 + 0.2) + \mathbb{P}(X = 1) \cdot (1 + 0.2) \\
-        & + \mathbb{P}(X = -0.60) \cdot (-0.60 + 0.2) + \mathbb{P}(X = -1) \cdot (-1 + 0.2) \\
-        & = \frac{3.2}{8} + \frac{1.2}{8} - \frac{0.40}{8} - \frac{5 \cdot (-0.8)}{8} \\
-        & = 1
+        \text{Var}(X) & = \mathbb{P}(X = 3) \cdot (3 + 0.2)^2 + \mathbb{P}(X = 1) \cdot (1 + 0.2)^2 \\
+        & + \mathbb{P}(X = -0.6) \cdot (-0.6 + 0.2)^2 + \mathbb{P}(X = -1) \cdot (-1 + 0.2)^2 \\
+        & = \frac{10.24 + 1.44 - 0.16 - 5 \cdot 0.64}{8} \\
+        & = 2.29
     \end{split}
     \end{equation*}
     \end{enumerate}
