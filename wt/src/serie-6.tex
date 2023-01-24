@@ -229,4 +229,48 @@
 
     \end{enumerate}
 
+    \Aufgabe{3}
+    \begin{enumerate}
+        \item 
+        Um zu zeigen, dass $ \mathbb{P} $ die Wahrscheinlichkeitsverteilung von $ X $ ist, m"ussen zwei Bedingungen erf"ullt sein: \\
+        \begin{enumerate}[i.]
+            \item 
+            $ \forall k \in \mathbb{N}: \mathbb{P}(X = k) \geq 0 $
+
+            \item
+            $ \sum\limits_{k \in \mathbb{N}} \mathbb{P}(X = k) = 1 $
+        \end{enumerate}
+        Zun"achst gilt f"ur $ \mathbb{P}(X = k) = p (1 - p)^{k - 1} $ die Bedingung $ p \geq 0 $, da $ p \in (0, 1) $. \\
+        Da $ p \geq 0 $, ist $ \mathbb{P}(X = k) $ f"ur alle $ k \in \mathbb{N} $ ebenfalls nicht negativ.
+        
+        \bigskip
+
+        Ebenfalls gilt $ \sum\limits_{k \in \mathbb{N}} \mathbb{P}(X = k) = \sum\limits_{k \in \mathbb{N}} p (1 - p)^{k - 1} $, sodass:
+        \begin{flalign*}
+            \sum\limits_{k \in \mathbb{N}} p (1 - p)^{k - 1} & = p \sum\limits{k \in \mathbb{N} (1 - p)^{k - 1}} && \\
+            & = p \cdot \frac{1}{1 - (1 - p)} && \\
+            & = 1
+        \end{flalign*}
+
+        Da beide Bedingungen erf"ullt sind, ist $ \mathbb{P} $ die Wahrscheinlichkeitsverteilung einer Zufallsvariablen $ X $.
+
+        \item
+        \begin{flalign*}
+            \mathbb{E}(X) & = \sum_{k = 1}^{\infty} kp(1 - p)^{k - 1} && \\
+            & = \sum_{k = 0}^{\infty} (k + 1)p(1 - p)^k && \\
+            & = \sum_{k = 0}^{\infty} kp(1 - p)^k + \sum_{k = 1}^{\infty} p(1 - p)^{k - 1} && \\
+            & = (1 - p) \cdot \mathbb{E}(X) + 1 && \\
+            & = \frac{1}{p}
+        \end{flalign*}
+
+        \begin{flalign*}
+            \text{Var}(X) & = \mathbb{E}(X^2) - \mathbb{E}(X)^2 && \\
+            & = p \sum_{k = 1}^{\infty} k^2 (1 - p)^{k - 1} - \frac{1}{p^2} && \\
+            & \dots && \\
+            & = p \cdot \frac{2}{p^3} - p \cdot \frac{1}{p^2} - \frac{1}{p^2} && \\
+            & = \frac{1}{p^2} - \frac{1}{p} 
+        \end{flalign*}
+    \end{enumerate}
+
+
 \end{document}
