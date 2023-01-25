@@ -99,6 +99,61 @@
 \bigskip
 
 Da $ S \in N_{1, 6} $, l"asst sich das gegebene Wort $ w_1 = aaabbb $ unter der Grammatik $ G $ aus $ S $ ableiten.
-Somit ist $ w_1 \in L(G) $. 
+Somit ist $ w_1 \in L(G) $.
+
+\bigskip
+
+\begin{tabular}{ |c|c|c|c|c|c| } 
+    \hline
+    $ b $ & $ b $ & $ b $ & $ a $ & $ a $ & $ b $ \\
+    \hline
+    $ \{V\} $ & $ \{V\} $ & $ \{V\} $ & $ \{T\} $ & $ \{T\} $ & $ \{V\} $ \\
+    \hline
+    $ \{T\} $ & $ \{T\} $ & $ \{\} $ & $ \{\} $ & $ \{S, V\} $ &  \\
+    \hline
+    $ \{S, V\} $ & $ \{\} $ & $ \{\} $ & $ \{S, V, U\} $ &   &  \\
+    \hline
+    $ \{\} $ & $ \{\} $ & $ \{T\} $ &   &   &  \\
+    \hline
+    $ \{\} $ & $ \{S, V, U\} $ &   &   &   &  \\
+    \hline
+    $ \{T, U\} $ &   &   &   &   &  \\
+    \hline
+\end{tabular}
+
+\bigskip
+
+Da $ S \notin N_{1, 6} $, l"asst sich das gegebene Wort $ w_2 = bbbaab $ nicht unter der Grammatik $ G $ ableiten.
+Somit ist $ w_2 \notin L(G) $.
+
+\bigskip
+
+\Aufgabe{5}
+
+$ \mathcal{A}_1 $:
+
+\begin{tikzpicture} [node distance = 4cm, on grid, auto]
+    \node (q0) [state, initial, accepting, initial text = {}] {$q_0$};
+    \node (q1) [state, right = of q0] {$q_1$};
+    \node (q2) [state, right = of q1] {$q_2$};
+    \node (q3) [state, accepting, right = of q2] {$q_3$};
+
+    \path [-stealth, thick]
+        (q0) edge node {$ aa / Z_0 / ZZ_0 $} (q1)
+        (q1) edge [loop above] node {$ aa / Z / ZZ $} ()
+        (q1) edge node {$ bbb / Z / \epsilon $} (q2)
+        (q2) edge [loop above] node {$ bbb / Z / \epsilon $} ()
+        (q2) edge node {$ \epsilon / Z_0 / \epsilon $} (q3);
+\end{tikzpicture}
+
+\bigskip
+
+Dieser Automat erzeugt nur W"orter, die F"ur alle zwei $ a $s genau drei $ b $s hinten dran h"angen 
+(die einzige Ausnahme ist hierbei das leere Wort, welches ebenfalls in $ L_1 $ enthalten ist).
+
+\newpage
+
+$ \mathcal{A}_2 $: \\
+$ \dots $
 
 \end{document}
