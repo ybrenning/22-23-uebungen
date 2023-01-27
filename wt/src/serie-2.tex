@@ -80,7 +80,7 @@
             \item
             Emil w"ahlt zuf"allig f"unf Speisen, welche er in der bestellten bzw. ausgew"ahlten Reihenfolge
             essen m"ochte und somit auch in der gegebenen Reihenfolge vom Koch auf das F"orderband gestellt werden sollen.
-            Emil ist es egal, wenn eine Speise mehrfach vorkommt. ich weiss gerade
+            Emil ist es egal, wenn eine Speise mehrfach vorkommt.
             \item
             Emil w"ahlt zuf"allig f"unf voneinander verschiedene Speisen, welche in der gegebenen Reihenfolge
             auf das Band gestellt und gegessen werden sollen.
@@ -132,7 +132,33 @@
 
             \item
             Es verbleiben $ \frac{30!}{(30 - 2)!}  = 870 $ M"oglichkeiten.
+
+            \item 
+            Es verbleiben nun $ 9 \cdot 6 = 54 $ verschiedene M"oglichkeiten wenn doppelte Zahlen vorkommen k"onnen, andernfalls sind es $ 54 - 6 = 48 $.
+
+            \item
+            Wenn die Reihenfolge unklar ist, gibt es $ (9 \cdot 6) \cdot 2 - 6^2 = 72 $ M"oglichkeiten mit und $ 72 - 6 = 66 $ M"oglichkeiten ohne Doppelziffern.
         \end{enumerate}
+
+        \item
+        \begin{enumerate}[i.]
+            \item 
+            Es gibt insgesamt $ \binom{8}{5} = 56 $ verschiedene Kombinationsm"oglichkeiten.
+
+            \item 
+            Wenn Lucie eine Gewinnerin ist, dann gibt es noch $ \binom{8 - 1}{5 - 1} = \binom{7}{4} = 35 $ verschiedene M"oglichkeiten.
+            
+            \item
+            Somit ist die Wahrscheinlichkeit, dass Lucie eine der M"unzen zieht genau $ \frac{35}{56} = 0.625 $.
+        \end{enumerate}
+
+        \item
+        Mit dieser Bedingung w"urde es sich nun um eine Kombination mit Wiederholung (Ziehen mit Zur"ucklegen und ohne Beachtung der Reihenfolge) handeln.
+        Somit g"abe es nun $ \binom{8 + 5 - 1}{5} = \binom{12}{5} = 792 $ verschiedene Gewinnverteilungen.
     \end{enumerate}
+
+    % \Aufgabe{4} \\
+    % Mit Zur"ucklegen: $ 3^5 = 243 $ vs $ \binom{5 + 3 - 1}{3} = \frac{7!}{3!4!} = 35 $
+    % Ohne Zur"ucklegen $ \binom{15}{5} = \frac{15!}{5!10!} = 3003 $ vs $ \frac{15!}{(15 - 5)!} = 360360 $
 
 \end{document}
