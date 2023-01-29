@@ -1,0 +1,150 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+\newcommand{\Fach}{Wahrscheinlichkeitstheorie}
+\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Seminargruppe}{F}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{3}
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{HA #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{1} 
+
+    Modellierung als Laplace-Raum mit durchnummiererten Karten:
+
+    $ \Omega = \{\omega = (\omega_1, \dots, \omega_{12}), \omega_i \in \{1, \dots, 48\} \mid \omega_i < \omega_{i + 1} \land i \neq j \Rightarrow \omega_i \neq \omega_j\} $
+
+    $ \displaystyle \Rightarrow \mathbb{P}(\omega) = \frac{1}{|\Omega|} $
+
+    Es handelt sich um eine Kombination ohne Wiederholung, d.h. Ziehen ohne Zur"ucklegen ohne Beachtung der Reihenfolge.
+
+    \bigskip
+
+    Es gibt $ n = 24 \cdot 2 $ Karten, da jede der 24 Karten doppelt vorkommt. Insgesamt wird immer $ k = 12 $ mal gezogen.
+
+    \bigskip
+
+    Daher ergibt sich f"ur das Zufallsexperiment $ |\Omega| = \binom{48}{12} $.
+    \begin{enumerate}[(a)]
+        \item
+        $ A = \{\text{Es werden zwei Kreuzdamen gezogen}\} $
+
+        % $ = \{\omega = \{\omega_1, \dots, \omega_n\} \mid \omega_1 \neq \omega_2, \omega_1, \omega_2 \in \{1, 2\} \land \omega_i \in \{3, \dots, 48\}, i = 3, \dots, 12\} $
+
+        $ \displaystyle \mathbb{P}(A) = \frac{|A|}{|\Omega|} = \frac{\binom{46}{10}}{\binom{48}{12}} = 0.05851063829 \approx 0.059 $
+
+        \item
+        $ B = \{\text{Es werden genau f"unf Tr"umpfe gezogen}\} $ 
+
+        Da wir genau f"unf Tr"umpfe ziehen wollen, darf keine von den anderen gezogenen Karten ein Trumpf sein.
+        Es werden also $ k = 5 $ von den $ n = 24 $ Tr"umpfen gezogen und die restlichen $ k = 7 $ Karten geh"oren zu den $ n = 24 $ nicht-Tr"umpfen.
+
+        $ \displaystyle \mathbb{P}(B) = \frac{|B|}{|\Omega|} = \frac{\binom{24}{5} \cdot \binom{24}{7}}{\binom{48}{10}} = 0.21115421084 \approx 0.21 $
+        
+        \item
+        $ C = \{\text{Es werden genau drei Pik und 4 Herz gezogen}\} $
+
+        Dieses mal sollen $ k = 3 $ von den $ n = 12 $ verschiedenen Pik-Karten gezogen werden. 
+        Das gleiche gilt f"ur die vier gezogenen Herz-Karten, und die restlichen vier sollen schlie\ss lich zu den 24 "ubrigen Symbolen geh"oren.
+
+        $ \displaystyle \mathbb{P}(C) = \frac{|C|}{|\Omega|} = \frac{\binom{12}{3} \cdot \binom{12}{4} \cdot \binom{24}{4}}{\binom{48}{12}} = 0.0664386819 \approx 0.066 $ 
+
+        \item
+        $ D = \{\text{Es werden mindestens 10 Tr"umpfe gezogen}\} $
+
+        $ \Leftrightarrow \{\text{Es werden 10, 11, oder 12 Tr"umpfe gezogen}\} $
+
+        $ \Rightarrow \displaystyle \mathbb{P}(D) = \sum_{i = 10}^{12}\frac{\binom{24}{i} \cdot \binom{24}{12-i}}{\binom{48}{12}} $ 
+
+        $ = 0.00776974368 + 0.00085989258 + 0.00003881459 $
+
+        $ = 0.00866845085 \approx 0.0087 $
+
+        \item
+        $ E = \{\text{Es werden genau 3 Pik oder genau 4 Herz gezogen}\} $
+
+        $ \displaystyle \mathbb{P}(E) = \frac{\binom{12}{3} \cdot \binom{36}{9}}{\binom{48}{12}} + \frac{\binom{12}{4} \cdot \binom{36}{8}}{\binom{48}{12}} - \frac{\binom{12}{3} \cdot \binom{12}{4} \cdot \binom{24}{5}}{\binom{48}{12}} $
+
+        $ = 0.297286598 + 0.21500191462 - 0.0664386819 $
+
+        $ = 0.44584983072 \approx 0.45 $
+
+        \item
+        $ F = \{\text{Es werden genau neun Damen gezogen}\} $
+
+        $ \displaystyle \mathbb{P}(F) = \frac{\binom{8}{9} \cdot \binom{39}{3}}{\binom{48}{12}} = 0 $
+
+        \item
+        $ D = \{\text{Es wird ein Kreuz, Pik, Herz oder Karo gezogen}\} $
+
+        Da $ |D| = |\Omega| $, ist die Wahrscheinlichkeit $ \mathbb{P}(D) $ dieses Ereignisses 1.
+
+        Anders gesagt: es gibt keine Karten im Deck, die nicht eine der vier genannten Symbole haben. 
+        Somit trifft das Ereignis auf alle Elementarereignisse in $ \Omega $ zu.
+    \end{enumerate}
+\end{document}
