@@ -147,4 +147,32 @@
         Anders gesagt: es gibt keine Karten im Deck, die nicht eine der vier genannten Symbole haben. 
         Somit trifft das Ereignis auf alle Elementarereignisse in $ \Omega $ zu.
     \end{enumerate}
+
+    \Aufgabe{2}
+    
+    Es sei $ \omega_i $ die ``Nummer'' des Mantels, und $ i $ die Person, die den Mantel erh"alt.
+
+    $ \Omega = \{(\omega_1, \omega_2, \omega_3, \omega_4), \omega_i \in \{1, 2, 3, 4\} \mid i \neq j \Rightarrow \omega_i \neq \omega_j\} $
+
+    \bigskip
+
+    Es handelt sich um eine Variation ohne Wiederholung, d.h. Ziehen ohne Zur"ucklegen mit Beachtung der Reihenfolge.
+
+    \begin{enumerate}[(a)]
+        \item 
+        $ A = \{\text{Keine der vier Personen erh"alt den eigenen Mantel}\} $
+
+        $ = \{(\omega_1, \omega_2, \omega_3, \omega_4), \omega_i \in \{1, 2, 3, 4\} \mid \omega_i \neq i\} $
+
+        Es werden $ k = 4 $ von den "ubrigen $ n = 4 $ Manteln gezogen.
+
+        $ \displaystyle \Rightarrow |\Omega| = \frac{4!}{0!} = 24 $
+
+        Wir k"onnen $ |A| $ mithilfe des Gegenereignisses bestimmen.
+
+        d.h. $ A^c = \{\text{Mindestens zwei Personen haben den richtigen Mantel}\} $
+
+        $ \displaystyle \mathbb{P}(A) = \frac{|A|}{|\Omega|} = \frac{9}{24} = \frac{3}{8} $
+
+    \end{enumerate}
 \end{document}
