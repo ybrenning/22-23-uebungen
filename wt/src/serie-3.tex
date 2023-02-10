@@ -174,5 +174,49 @@
 
         $ \displaystyle \mathbb{P}(A) = \frac{|A|}{|\Omega|} = \frac{9}{24} = \frac{3}{8} $
 
+        \item
+        $ \Omega = \{\omega = (\omega_1, \omega_2) \mid w_i \in \{1, 2, 3, 4\}, i \neq j \Rightarrow \omega_i \neq \omega_j\} $
+
+        $ \displaystyle P(B) = \frac{1}{\frac{4!}{(4 - 2)!}} = \frac{1}{12} $
+    \end{enumerate}
+
+    \Aufgabe{3}
+    \begin{enumerate}[(a)]
+        \item 
+        $ \Omega = \{(\omega_1, \omega_2, \omega_3, \omega_4) \mid \omega_i \in \{1, 2, 3, 4, 5, 6\}\} $
+
+        \item 
+        Laplace-Raum:
+
+        $ \Omega = \{(\omega_1, \omega_2) \mid \omega_i \in \{1, 2, 3, 4, 5, 6\}\} $
+
+        Kein Laplace-Raum:
+
+        $ \Omega' = \{\omega = \omega_1 + \omega_2 \mid \omega_i \in \{1, 2, 3, 4, 5, 6\}\} $
+
+        $ \displaystyle \mathbb{P}(\omega) = (\frac{1}{6} \cdot \frac{1}{6})^24  $
+
+        $ \Rightarrow A = \Omega^{24} $
+
+        \item
+        Spiel 1:
+
+        $ A = \{\text{Unter den vier W"urfen kommt mindestens eine sechs}\} $
+
+        $ A^c = \{\text{Unter den vier W"urfen kommt keine sechs}\} $
+
+        $ \displaystyle \Rightarrow \mathbb{P}(A) = 1 - \mathbb{P}(A^c) = 1 - (\frac{5}{6})^4 \approx 0.518 $
+
+        $ B = \{\text{24 Doppelw"urfe, darunter mindestens eine Doppelsechs}\} $
+
+        $ B^c = \{\text{24 Doppelw"urfe, darunter keine Doppelsechs}\} $
+
+        $ \displaystyle \mathbb{P}(B) = 1 - \mathbb{P}(B^c) = 1 - (1 - (\frac{1}{6} \cdot \frac{1}{6})^2)^{24} \approx 0.491 $
+
+        \item
+        Die Ereigniswahrscheinlichkeiten summieren sich nicht auf, da jedes mal der W"urfel neu geworfen wird.
+        Sonst h"atte das Ereignis, bei sechs W"urfen eine sechs zu werfen, die Wahrscheinlichkeit $ \frac{1}{6} \cdot 6  = 1 $.
+
+        Statt zu multiplizieren, m"ussen die Elementarwahrscheinlichkeiten potenziert werden.
     \end{enumerate}
 \end{document}
