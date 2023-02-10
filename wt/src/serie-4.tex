@@ -1,0 +1,99 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+\newcommand{\Fach}{Wahrscheinlichkeitstheorie}
+\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Seminargruppe}{F}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{6}
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{HA #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{1}
+    \begin{enumerate}[(a)]
+        \item 
+        $ \displaystyle \mathbb{P}(G_1) = \frac{5}{12} $
+
+        \item
+        $ \displaystyle \mathbb{P}(O_1) = \frac{3}{12} = \frac{1}{4} $
+
+        \item
+        $ \displaystyle \mathbb{P}(G_2 | R_1) = \frac{\mathbb{P}(G_2 \cap R_1)}{\mathbb{P}(R_1)} = \frac{\frac{5}{11} \cdot \frac{1}{12}}{\frac{1}{12}}  = \frac{5}{132} \cdot \frac{12}{1} = \frac{60}{132} = \frac{5}{11} $
+
+        \item
+        $ \displaystyle \mathbb{P}(O_2 | O_1) = \frac{\mathbb{P}(O_2 \cap O_1)}{\mathbb{P}(O_1)} = \frac{\frac{2}{11} \cdot \frac{3}{12}}{\frac{3}{12}} = \frac{6}{132} \cdot \frac{12}{3} = \frac{72}{396} = \frac{2}{11} $
+
+        \item
+        $ \displaystyle \mathbb{P}(W_2 \cap O_1) = \frac{3}{11} \cdot \frac{3}{12} = \frac{9}{132} $
+
+        \item
+        $ \displaystyle \mathbb{P}(W_2) = \frac{5}{12} \cdot \frac{3}{11} + \frac{3}{12} \cdot \frac{3}{11} + \frac{3}{12} \cdot \frac{2}{11} + \frac{1}{12} \cdot \frac{3}{11} = \frac{33}{132} $
+
+        \item
+        $ \displaystyle \mathbb{P}(O_1 | W_2) = \frac{\mathbb{P}(O_1 \cap W_2)}{\mathbb{P}(W_2)} $
+    \end{enumerate}
+\end{document}
