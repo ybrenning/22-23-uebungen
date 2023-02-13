@@ -25,7 +25,7 @@
 \newcommand{\Seminargruppe}{F}
 \newcommand{\Matrikelnummer}{3732848, 3796826}
 \newcommand{\Semester}{WiSe 22/23}
-\newcommand{\Uebungsblatt}{6}
+\newcommand{\Uebungsblatt}{4}
 
 \setlength{\parindent}{0em}
 \topmargin -1.0cm
@@ -73,7 +73,7 @@
     \end{center}
     \vspace*{0.2cm}
 
-    \Aufgabe{1}
+    \Aufgabe{2}
     \begin{enumerate}[(a)]
         \item 
         $ \displaystyle \mathbb{P}(G_1) = \frac{5}{12} $
@@ -94,6 +94,41 @@
         $ \displaystyle \mathbb{P}(W_2) = \frac{5}{12} \cdot \frac{3}{11} + \frac{3}{12} \cdot \frac{3}{11} + \frac{3}{12} \cdot \frac{2}{11} + \frac{1}{12} \cdot \frac{3}{11} = \frac{33}{132} $
 
         \item
-        $ \displaystyle \mathbb{P}(O_1 | W_2) = \frac{\mathbb{P}(O_1 \cap W_2)}{\mathbb{P}(W_2)} $
+        $ \displaystyle \mathbb{P}(O_1 | W_2) = \frac{\mathbb{P}(O_1 \cap W_2)}{\mathbb{P}(W_2)} = \frac{\frac{3}{12} \cdot \frac{3}{11}}{\frac{33}{132}} = \frac{3}{11} $
+    \end{enumerate}
+
+    \Aufgabe{3}
+
+    $ \displaystyle \mathbb{P}(A | R) = \frac{\mathbb{P}(A \cap R)}{\mathbb{P}(R)} = \frac{\frac{7}{10} \cdot \frac{1}{2}}{\frac{7}{10} \cdot \frac{1}{2} + \frac{1}{10} \cdot \frac{1}{2}} = \frac{\frac{7}{20}}{\frac{8}{20}} = \frac{7}{8} $
+
+    \Aufgabe{4}
+    \begin{enumerate}[(a)]
+        \item
+
+        $ \displaystyle \mathbb{P}(F | \text{Mo}) = \mathbb{P}(F | \text{Di}) = \frac{3}{100} $
+
+        $ \displaystyle \mathbb{P}(F^{\mathsf{c}} | \text{Mo}) = \mathbb{P}(F^{\mathsf{c}} | \text{Di}) = \frac{97}{100} $
+
+        $ \displaystyle \mathbb{P}(F | \text{Mi}) = \mathbb{P}(F | \text{Do}) = \frac{2}{100} $
+
+        $ \displaystyle \mathbb{P}(F^{\mathsf{c}} | \text{Mi}) = \mathbb{P}(F^{\mathsf{c}} | \text{Do}) = \frac{98}{100} $
+
+        $ \displaystyle \mathbb{P}(F | \text{Fr}) \frac{5}{100} $
+
+        $ \displaystyle \mathbb{P}(F^{\mathsf{c}} | \text{Fr}) = \frac{95}{100} $
+
+        \newpage 
+
+        \item
+
+        $ \displaystyle\mathbb{P}(F) = \mathbb{P}(\text{Mo} \cap F) + \mathbb{P}(\text{Di} \cap F) + \mathbb{P}(\text{Mi} \cap F) + \mathbb{P}(\text{Do} \cap F) + \mathbb{P}(\text{Fr} \cap F)  $
+        
+        $ \displaystyle = \frac{1}{7} \cdot \frac{3}{100} + \frac{1}{7} \cdot \frac{3}{100} + \frac{1}{7} \cdot \frac{2}{100} + \frac{1}{7} \cdot \frac{2}{100} + \frac{1}{7} \cdot \frac{5}{100} $
+
+        $ \displaystyle = \frac{3}{140} $
+
+        \item
+
+        $ \displaystyle \mathbb{P}(\text{Fr} | F) = \frac{\mathbb{P}(\text{Fr} \cap F)}{\mathbb{P}(F)} = \frac{\frac{1}{7} \cdot \frac{3}{100}}{\frac{3}{140}} = \frac{420}{2100} = \frac{1}{5} $
     \end{enumerate}
 \end{document}
