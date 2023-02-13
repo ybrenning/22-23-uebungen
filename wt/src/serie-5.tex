@@ -1,0 +1,205 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+\newcommand{\Fach}{Wahrscheinlichkeitstheorie}
+\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Seminargruppe}{F}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{5}
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\Aufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{HA #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \Aufgabe{1}
+
+    \begin{enumerate}[(b)]
+        \item 
+
+        \textbf{Berechnung:}
+
+        $ \displaystyle \mathbb{P}(A_2) \cdot \mathbb{P}(A_1^{\mathsf{c}}) = (\frac{6}{10} \cdot \frac{5}{9} + \frac{4}{10} \cdot \frac{6}{9}) \cdot (1 - \frac{6}{10}) = \frac{54}{90} \cdot \frac{4}{10} = \frac{216}{900} = 0.24 $
+
+        $ \displaystyle \mathbb{P}(A_2 \cap A_1^{\mathsf{c}}) = \frac{4}{10} \cdot \frac{3}{9} = \frac{12}{90} \approx 0.133 $
+
+        $ \Rightarrow \mathbb{P}(A_2) \cdot \mathbb{P}(A_1^{\mathsf{c}}) \neq \mathbb{P}(A_2 \cap A_1^{\mathsf{c}}) $ 
+        
+        $\Rightarrow $ Die Ereignisse $ A_2 $ und $ A_1^{\mathsf{c}} $ sind somit nicht unabh"angig.
+
+        \bigskip
+
+        \textbf{Erkl"arung:}
+
+        Die Wahrscheinlichkeit von $ A_2 $ beschreibt die Wahrscheinlichkeit, dass im zweiten Zug ein fehlerfreies Produktionsteil entnommen wird.
+        Da es sich um ein Ziehen ohne Zur"ucklegen handelt, sind nach dem ersten Zug unterschiedlich viele Produktionsteile in der Kiste, d.h. vor dem zweiten
+        Zug sind in jedem Fall weniger Produktionsteile insgesamt enthalten als vor dem ersten. Die Wahrscheinlichkeiten des zweiten Zuges "andern sich also je nachdem 
+        was im ersten Zug entnommen wird, denn nach dem ersten Zug gibt es entweder ein fehlerhaftes oder ein fehlerfreies Teil weniger als davor. 
+        
+        Somit h"angt $ A_2 $ davon ab, was im ersten zug entnommen wurde, in diesem Fall w"are es ein fehlerhaftes Produktionsteil ($ A_1^{\mathsf{c}} $).
+    \end{enumerate}
+
+    \Aufgabe{2}
+
+    \begin{enumerate}[(a)]
+        \item 
+        
+        Wahrscheinlichekitsraum $ (\Omega, \mathcal{A}, \mathbb{P}) $ mit
+
+        \begin{itemize}
+            \item 
+            $ \Omega = \{0, 1, 2, 3, 4\} $
+
+            \item
+            $ \mathcal{A} = \mathcal{P}(\Omega) = \{\emptyset, \{0\}, \{0, 1\}, \{0, 1, 2\}, \dots\} $ 
+    
+            \item
+            $ \displaystyle \mathbb{P}(\omega) = \binom{4}{X} \cdot (\frac{1}{2})^4 $
+        \end{itemize}
+
+        \item
+
+        $ X \in \{0, 1, 2, 3, 4\} $
+
+        \bigskip
+
+        \setlength{\tabcolsep}{10pt} % Default value: 6pt
+        \renewcommand{\arraystretch}{2.5} % Default value: 1
+        \begin{tabular}{c|c|c|c|c|c}
+            $ k $ & 0 & 1 & 2 & 3 & 4 \\
+            \hline
+            $ \displaystyle \mathbb{P}(X = k) $ & $ \displaystyle \frac{1}{16} $ & $ \displaystyle \frac{1}{4} $ & $ \displaystyle \frac{1}{2} $ & $ \displaystyle \frac{1}{4} $ & $ \displaystyle\frac{1}{16} $ \\
+        \end{tabular}
+    \end{enumerate}
+
+    \Aufgabe{3}
+    
+    \begin{enumerate}[(a)]
+        \item 
+
+        $ (\Omega, \mathcal{A}, \mathbb{P}) $
+
+        \begin{itemize}
+            \item $ \Omega = \{-4, -3, -2, -1, 0, 1, 2\} $
+            \item $ \mathcal{A} = \mathcal{P}(\Omega) $
+            \item $ \displaystyle \mathbb{P}(A) = \sum\limits_{w \in A} \mathbb{P}(A), \mathbb{P}(\Omega) = 1 $
+        \end{itemize}
+
+        \item
+
+        $ G \in \{2, 1.5, 1, 0.5, -5\} $
+
+        \bigskip
+
+        \setlength{\tabcolsep}{10pt} % Default value: 6pt
+        \renewcommand{\arraystretch}{2.5} % Default value: 1
+        \begin{tabular}{c|c|c|c|c|c}
+            $ k $ & 2 & 1.5 & 1 & 0.5 & -5 \\
+            \hline
+            $ \displaystyle \mathbb{P}(G = k) $ & $ \displaystyle \frac{2}{20} $ & $ \displaystyle \frac{1}{20} $ & $ \displaystyle \frac{3}{20} $ & $ \displaystyle \frac{7}{20} $ & $ \displaystyle\frac{7}{20} $ \\
+        \end{tabular}
+
+        \bigskip
+
+        \item
+
+        Die einzige M"oglichkeit, dass der Besitzer Geld verliert ist mit $ G = -5 $, d.h. die Wahrscheinlichkeit auf Verlust
+        f"ur den Besitzer ist $ \mathbb{P}(G = -5) = \frac{7}{20} $.
+
+        \item
+
+        $ \displaystyle \mathbb{E}(G) = \frac{2}{20} \cdot 2 + \frac{1}{20} \cdot 1.5 + \frac{3}{20} \cdot 1 + \frac{7}{20} \cdot 0.5 + \frac{7}{20} \cdot (-5) $
+
+        $ \Rightarrow \mathbb{E}(G) = -1.15 $
+
+        Der Gewinn des Ladenbesitzers nimmt im Mittel einen negativen Wert an, da der Erwartungswert von $ G $ negativ ist.
+
+        Der Stand ist also auf lange Sicht nicht profitabel.
+    \end{enumerate}
+
+    \Aufgabe{4}
+    \begin{enumerate}[(a)]
+        \item 
+
+        $ (\Omega, \mathcal{A}, \mathbb{P}) $
+
+        \begin{itemize}
+            \item $ \Omega = \{1, 2, 3, 4, 5\}^10 $
+            \item $ \mathcal{A} = \mathcal{P}(\Omega) $
+            \item $ \displaystyle \mathbb{P}(\omega) = \frac{1}{|\Omega|} = \frac{1}{5^{10}} $
+        \end{itemize}
+
+        Die Zufallsvariable $ X $ beschreibt die Anzahl an Punkten bzw. Anzahl an richtig beantworteten Aufgaben.
+        
+        $ X \in \{0, 1, 2, \dots, 10\} $
+
+        % \setlength{\tabcolsep}{10pt} % Default value: 6pt
+        % \renewcommand{\arraystretch}{2.5} % Default value: 1
+        % \begin{tabular}{c|c|c|c|c|c}
+        %     $ k $ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        %     \hline
+        %     $ \displaystyle \mathbb{P}(X = k) $ & $ \displaystyle \frac{2}{20} $ & $ \displaystyle \frac{1}{20} $ & $ \displaystyle \frac{3}{20} $ & $ \displaystyle \frac{7}{20} $ & $ \displaystyle\frac{7}{20} $ \\
+        % \end{tabular}
+    \end{enumerate}
+\end{document}
