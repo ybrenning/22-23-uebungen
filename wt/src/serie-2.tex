@@ -42,6 +42,14 @@
     }
 }
 
+\newcommand{\PAufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{PA #1}
+        \vspace*{0.2cm}
+    }
+}
+
 \hypersetup{
     pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
     pdfauthor = {\Name},
@@ -72,6 +80,45 @@
         \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
     \end{center}
     \vspace*{0.2cm}
+
+    \PAufgabe{1}
+    \begin{enumerate}[(a)]
+        \item 
+
+        Ziehen ohne Zur"ucklegen mit Beachtung der Reihenfolge:
+
+        $ \displaystyle \frac{n!}{(n - k)!} = \frac{6!}{(6 - 4)!} = 360 $
+
+        \item
+
+        Ziehen ohne Zur"ucklegen ohne Beachtung der Reihenfolge:
+
+        $ \displaystyle \binom{n}{k} = \frac{6!}{4!(6 - 4)!} = 15 $
+
+        \item
+
+        Kombinationen f"ur einen Spieler 
+        
+        (Ziehen ohne Zur"ucklegen ohne Beachtung der Reihenfolge):
+
+        $ \displaystyle \binom{n}{k} = \frac{48!}{12!(48 - 12)!} = 69668534468 $
+
+        \bigskip
+
+        Insgesamte Kombinationen 
+        
+        (Ziehen ohne Zur"ucklegen mit Beachtung der Reihenfolge):
+        
+        $ \displaystyle \frac{4!}{(4 - 4)!} = 4! = 24 $
+
+        $ \Rightarrow 24 \cdot 69668534468 $ M"oglichkeiten insgesamt.
+
+        \item
+
+        Ziehen mit Zur"ucklegen mit Beachtung der Ziehungsreihenfolge:
+
+        $ \displaystyle n^k = 4^5 = 1024 $
+    \end{enumerate}
 
     \Aufgabe{1}
     \begin{enumerate}[(a)]
