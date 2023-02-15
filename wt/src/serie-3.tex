@@ -168,9 +168,33 @@
         \begin{enumerate}[i.]
             \item 
 
-            $ \mathbb{P}(A) =  $
+            $ \displaystyle \mathbb{P}(A) = 1 - \mathbb{P}(A^{\mathsf{c}}) = 1 - (\frac{5}{6})^6 \approx 0.665 $
         \end{enumerate}
 
+    \end{enumerate}
+
+    \PAufgabe{3}
+    \begin{enumerate}[(a)]
+        \item 
+
+        $ (\Omega, \mathcal{A}, \mathbb{P}) $ mit
+        \begin{itemize}
+            \item $ \Omega = \{\text{Gr"un, Rot}\} $
+            \item $ \mathcal{A} = \mathcal{P}(\Omega) $
+            \item $ \displaystyle \mathbb{P}(\text{Gr"un}) = \frac{4}{6} = \frac{2}{3}, \mathbb{P}(\text{Rot}) = \frac{2}{6} = \frac{1}{3} $
+        \end{itemize}
+
+        Es handelt sich nicht um einen Laplace-Raum, da die beiden Elementarereignisse nicht die gleiche Wahrscheinlichkeit haben.
+
+        \item
+
+        $ \displaystyle \mathbb{P}(\text{GRGRRR}) = (\frac{2}{3})^2 \cdot (\frac{1}{3})^4 \approx 0.0055 $
+
+        $ \displaystyle \mathbb{P}(\text{GRRRRR}) = \frac{2}{3} \cdot (\frac{1}{3})^5 \approx 0.0027 $
+
+        $ \displaystyle \mathbb{P}(\text{*RGRRR oder RGRRR*}) = \mathbb{P}(\text{RGRRR}) = \frac{2}{3} \cdot (\frac{1}{3})^4 \approx 0.0082 $
+
+        Das Ereignis *RGRRR oder RGRRR* ist somit am wahrscheinlichsten.
     \end{enumerate}
 
     \Aufgabe{1} 
