@@ -42,6 +42,14 @@
     }
 }
 
+\newcommand{\PAufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{PA #1}
+        \vspace*{0.2cm}
+    }
+}
+
 \hypersetup{
     pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
     pdfauthor = {\Name},
@@ -73,6 +81,18 @@
     \end{center}
     \vspace*{0.2cm}
 
+    \PAufgabe{2}
+
+    Im folgenden sei $ S_j, j \in \{0, \dots, 5\} $ das Ereignis, dass aus Urne $ U_j $ eine schwarze Kugel gezogen wird. 
+
+    $ \mathbb{P}(S_0) = 0, \mathbb{P}(S_1) = \frac{1}{5}, \mathbb{P}(S_2) = \frac{2}{5}, \mathbb{P}(S_3) = \frac{3}{5}, \mathbb{P}(S_4) = \frac{4}{5}, \mathbb{P}(S_5) = 1 $
+
+    \bigskip
+
+    $ A = \{\text{Aus einer zuf"alligen Urne wird eine schwarze Kugel gezogen}\} $
+
+    $ \displaystyle \mathbb{P}(A) = \sum\limits_{j = 1}^{5} \frac{1}{6} \cdot \mathbb{P}(S_j) = \frac{0 + 1 + 2 + 3 + 4 + 5}{6 \cdot 5} = \frac{15}{35} = \frac{3}{7} $
+
     \Aufgabe{2}
     \begin{enumerate}[(a)]
         \item 
@@ -101,6 +121,8 @@
 
     $ \displaystyle \mathbb{P}(A | R) = \frac{\mathbb{P}(A \cap R)}{\mathbb{P}(R)} = \frac{\frac{7}{10} \cdot \frac{1}{2}}{\frac{7}{10} \cdot \frac{1}{2} + \frac{1}{10} \cdot \frac{1}{2}} = \frac{\frac{7}{20}}{\frac{8}{20}} = \frac{7}{8} $
 
+    \newpage 
+    
     \Aufgabe{4}
     \begin{enumerate}[(a)]
         \item
@@ -116,8 +138,6 @@
         $ \displaystyle \mathbb{P}(F | \text{Fr}) \frac{5}{100} $
 
         $ \displaystyle \mathbb{P}(F^{\mathsf{c}} | \text{Fr}) = \frac{95}{100} $
-
-        \newpage 
 
         \item
 
