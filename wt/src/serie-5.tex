@@ -42,6 +42,14 @@
     }
 }
 
+\newcommand{\PAufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{PA #1}
+        \vspace*{0.2cm}
+    }
+}
+
 \hypersetup{
     pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
     pdfauthor = {\Name},
@@ -72,6 +80,97 @@
         \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
     \end{center}
     \vspace*{0.2cm}
+
+    \PAufgabe{1}
+    \begin{enumerate}[(a)]
+        \item 
+
+        Die Ereignisse sind kausal abh"angig, da der erste Wurf (welcher bei $ B $ sechs sein soll) die Augenzahl mitbestimmt.
+
+        \item
+
+        $ (\Omega, \mathcal{A}, \mathbb{P}) $ mit
+        \begin{itemize}
+            \item $ \Omega = \{1, 2, 3, 4, 5, 6\}^2 $
+            \item $ \mathcal{A} = \mathcal{P}(\Omega) $
+            \item $ \mathbb{P}(\omega) = \frac{1}{|\Omega|} = \frac{1}{36} $
+        \end{itemize}
+
+        $ \displaystyle \mathbb{P}(A) = \frac{|A|}{|\Omega|} = \frac{6}{36} = \frac{1}{6} $
+
+        $ \displaystyle \mathbb{P}(B) = \frac{|B|}{|\Omega|} = \frac{6}{36} = \frac{1}{6} $ 
+
+        $ \displaystyle \mathbb{P}(A) \cdot \mathbb{P}(B) = \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36} $
+
+        $ \displaystyle \mathbb{P}(A \cap B) = \frac{|A \cap B|}{|\Omega|} = \frac{1}{36} $
+
+        $ \Rightarrow \mathbb{P}(A) \cdot \mathbb{P}(B) = \mathbb{P}(A \cap B) $ 
+        
+        Die Ereignisse $ A $ und $ B $ sind also stochastisch unabh"angig.
+    \end{enumerate}
+
+    \PAufgabe{2}
+    \begin{itemize}
+        \item Ergebnis := Kopf oder Zahl, Erfolg := ``Kopf'', d.h. $ p = \frac{1}{2} $
+        \item Ergebnis := Kaputt oder funktionsf"ahig, Erfolg := ``Maschine funktionsf"ahig''
+        \item Ergebnis := Gerade oder ungerade Augenzahl, Erfolg := ``Gerade Augenzahl'', d.h. $ p = \frac{3}{6} $
+        \item Ergebnis := Auto oder keine Auto, Erfolg := ``Spielzeugauto''
+        \item Ergebnis := Wirkt oder wirkt nicht, Erfolg := ``Wirkt''
+        \item Ergebnis := Geblitzt oder nicht geblitzt werden, Erfolg := ``Nicht geblitzt''
+        \item Ergebnis := Test positiv oder negativ, Erfolg := ``Negativ''
+    \end{itemize}
+
+    \PAufgabe{3}
+    \begin{enumerate}[(a)]
+        \item 
+
+        $ (\Omega, \mathcal{A}, \mathbb{P}) $ mit
+        \begin{itemize}
+            \item $ \Omega = \{1, 2, 3, 4, 5, 6\}^{10} $
+            \item $ \mathcal{A} = \mathcal{P}(\Omega) $
+            \item $ \mathbb{P}(\omega) = \frac{1}{6^{10}} $
+        \end{itemize}
+
+        \item
+
+        $ N \in \{5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5\} $
+
+        \item
+        
+        Es beschreibe $ X $ nun die Anzahl an w"urfen, bis 6 getroffen wurde.
+
+        Es handelt sich um eine geometrische Verteilung, d.h. $ X \sim \text{Geom}(p) $.
+
+        $ \displaystyle \mathbb{P}(X = 1) = \frac{5}{6}^{1 - 1} \cdot \frac{1}{6} = \frac{1}{6} \approx 0.167 = \mathbb{P}(N = 5) $
+
+        $ \displaystyle \mathbb{P}(X = 2) = \frac{5}{6}^{2 - 1} \cdot \frac{1}{6} = \frac{5}{36} \approx 0.139 = \mathbb{P}(N = 4) $
+
+        $ \displaystyle \mathbb{P}(X = 3) = \frac{5}{6}^{3 - 1} \cdot \frac{1}{6} = \frac{25}{216} \approx 0.116 = \mathbb{P}(N = 3) $
+
+        $ \displaystyle \mathbb{P}(X = 4) = \frac{5}{6}^{4 - 1} \cdot \frac{1}{6} = \frac{125}{1296} \approx 0.096 = \mathbb{P}(N = 2) $
+
+        $ \displaystyle \mathbb{P}(X = 5) = \frac{5}{6}^{5 - 1} \cdot \frac{1}{6} = \frac{625}{7776} \approx 0.08 = \mathbb{P}(N = 1) $
+
+        $ \displaystyle \mathbb{P}(X = 6) = \frac{5}{6}^{6 - 1} \cdot \frac{1}{6} = \frac{3125}{46656} \approx 0.067 = \mathbb{P}(N = 0) $
+
+        $ \displaystyle \mathbb{P}(X = 7) = \frac{5}{6}^{7- 1} \cdot \frac{1}{6} = \frac{15625}{279936} \approx 0.056 = \mathbb{P}(N = -1) $
+
+        $ \displaystyle \mathbb{P}(X = 8) = \frac{5}{6}^{8 - 1} \cdot \frac{1}{6} = \frac{78125}{1679616} \approx 0.047 = \mathbb{P}(N = -2) $
+
+        $ \displaystyle \mathbb{P}(X = 9) = \frac{5}{6}^{9 - 1} \cdot \frac{1}{6} = \frac{390625}{10077696} \approx 0.039 = \mathbb{P}(N = -3)$
+
+        $ \displaystyle \mathbb{P}(X = 10) = \frac{5}{6}^{10 - 1} \cdot \frac{1}{6} = \frac{1953125}{60466176} \approx 0.032 = \mathbb{P}(N = -4) $
+
+        $ \Rightarrow \mathbb{P}(N = -5) = 1 - \sum\limits_{k = 1}^{10} \mathbb{P}(X = k) \approx 1 - 0.839 = 0.161 $
+
+        \item
+
+        $ A = \{\text{Der Nettogewinn ist negativ}\} $
+
+        $ \mathbb{P}(A) = \sum\limits_{k = 1}^{4} \mathbb{P}(X = -k) \approx 0.056 + 0.047 + 0.039 + 0.032 =  0.174 $
+    \end{enumerate}
+
+    \newpage
 
     \Aufgabe{1}
 
