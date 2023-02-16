@@ -1,0 +1,197 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{fancyheadings}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+\newcommand{\Fach}{Wahrscheinlichkeitstheorie}
+\newcommand{\Name}{Yannick Brenning, Jean Röther}
+\newcommand{\Seminargruppe}{F}
+\newcommand{\Matrikelnummer}{3732848, 3796826}
+\newcommand{\Semester}{WiSe 22/23}
+\newcommand{\Uebungsblatt}{7}
+
+\setlength{\parindent}{0em}
+\topmargin -1.0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\newcommand{\PAufgabe}[1]{
+        {
+        \vspace*{0.5cm}
+        \textbf{PA #1}
+        \vspace*{0.2cm}
+    }
+}
+
+\hypersetup{
+    pdftitle = {\Fach{}: Übungsblatt \Uebungsblatt{}},
+    pdfauthor = {\Name},
+    pdfborder = {0 0 0}
+}
+
+\lstset{
+    language=java,
+    basicstyle=\footnotesize\tt,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    extendedchars=true,
+    showstringspaces=false,
+    flexiblecolumns=true,
+}
+
+\title{Übungsblatt \Uebungsblatt{}}
+\author{\Name{}}
+
+\begin{document}
+    \thispagestyle{fancy}
+    \lhead{\Fach{} \\ \small \Name{} - \Matrikelnummer{}}
+    \rhead{\Semester{} \\  Übungsgruppe \Seminargruppe{}}
+    \vspace*{0.2cm}
+    \begin{center}
+        \LARGE \textbf{Übungsblatt \Uebungsblatt{}}
+    \end{center}
+    \vspace*{0.2cm}
+
+    \PAufgabe{1}
+
+    \setlength{\tabcolsep}{10pt} % Default value: 6pt
+    \renewcommand{\arraystretch}{2.5} % Default value: 1
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $ X $ \textbackslash $ Y $ & -2 & 0 & 1 & \\
+        \hline
+        0 & 0 & 0 & $ \displaystyle \frac{3}{16} $ & $ \displaystyle \frac{3}{16} $ \\
+        \hline
+        1 & $ \displaystyle \frac{3}{16} $ &  $ \displaystyle \frac{3}{16} $ & 0 & $ \displaystyle \frac{6}{16} $ \\
+        \hline
+        2 & $ \displaystyle \frac{4}{16} $ & $ \displaystyle \frac{3}{16} $ & 0 & $ \displaystyle \frac{7}{16} $ \\
+        \hline
+         & $ \displaystyle \frac{7}{16} $ & $ \displaystyle \frac{6}{16} $ & $ \displaystyle \frac{3}{16} $ & 1 \\
+        \hline
+    \end{tabular}
+
+    \bigskip
+
+    Unabh"angigkeit:
+
+    $ \mathbb{P}(X = 0) \cdot \mathbb{P}(Y = -2) = \displaystyle \frac{3}{16} \cdot \frac{7}{16} $
+
+    \medskip
+
+    $ \mathbb{P}(X = 0, Y = -2) = 0 \neq \mathbb{P}(X = 0) \cdot \mathbb{P}(Y = -2) $
+
+    $ \Rightarrow X $ und $ Y $ sind nicht stochastisch unabh"angig.
+
+    \bigskip
+
+    $ \displaystyle \mathbb{E}(X) = 0 \cdot \frac{3}{16} + 1 \cdot \frac{6}{16} + 2 \cdot \frac{7}{16} = \frac{20}{16} $
+
+    \medskip
+
+    $ \displaystyle \mathbb{E}(Y) = -2 \cdot \frac{7}{16} + 0 \cdot \frac{6}{16} + 1 \cdot \frac{3}{16} = - \frac{11}{16} $
+
+    \bigskip
+
+    $ \text{Var}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 $
+
+    \bigskip
+
+    $ \displaystyle \mathbb{E}(X^2) = 0^2 \cdot \frac{3}{16} + 1^2 \cdot \frac{6}{16} + 2^2 \cdot \frac{7}{16} = \frac{34}{16} $
+
+    \medskip
+
+    $ \displaystyle \mathbb{E}(Y^2) = (-2)^2 \cdot \frac{7}{16} + 0^2 \cdot \frac{6}{16} + 1^2 \cdot \frac{3}{16} = \frac{31}{16} $
+
+    \bigskip
+
+    $ \displaystyle \Rightarrow \text{Var}(X) = \frac{34}{16} - (\frac{5}{4})^2 = \frac{34 - 25}{16} = \frac{9}{16} $
+
+    \medskip
+
+    $ \displaystyle \Rightarrow \text{Var}(Y) = \frac{31}{16} + (\frac{11}{16})^2 = \frac{375}{256} $
+
+    \newpage
+
+    $ \text{Cov}(X, Y) = \mathbb{E}(XY) - \mathbb{E}(X) \cdot \mathbb{E}(Y) $ 
+
+    \medskip
+
+    $ Z = XY $, sodass $ Z \in \{-4, -2, 0, 1, 2\} $  
+
+    $ \displaystyle \mathbb{E}(XY) = \mathbb{E}(Z) = -4 \cdot \frac{4}{16} -2 \cdot \frac{3}{16} = \frac{-16 - 6}{16} = - \frac{22}{16} $
+
+    \medskip
+
+    $ \displaystyle \text{Cov}(X, Y) = -\frac{11}{8} - \frac{5}{4} \cdot -(\frac{11}{16}) = -\frac{11}{8} + \frac{55}{64} = - \frac{33}{64} $
+
+    \bigskip
+
+    $ \displaystyle \Rightarrow \rho_{X, Y} = \frac{\text{Cov}(X, Y)}{\sqrt{\text{Var}(X) \cdot \text{Var}(Y)}} $
+
+    \PAufgabe{4}
+    \begin{enumerate}[(a)]
+        \item 
+
+        $ f $ ist eine Wahrscheinlichkeitsdichte obwohl manche Funktionswerte gr"o\ss er als 1 sind, da Wkt.-Dichtefunktionen mit dem Integral
+        die Wahrscheinlichkeiten berechnen, d.h. die Fl"ache unter $ f $ im Intervall $ [0, 1] $ ist in diesem Fall gleich 1. Au\ss erdem ist die Kurve nichtnegativ, was eine weitere Eigenschaft der Wkt.-Dichtefunktionen ist.
+
+        \item
+
+        \begin{flalign*}
+            \mathbb{P}(x < 0.1) & = \int_{0}^{0.1} 3(x - 1)^2 \,dx && \\
+            & = \left[(x - 1)^3\right]_{0}^{0.1} && \\
+            & = (-0.9)^3 - (-1)^3 && \\
+            & = 0.271
+        \end{flalign*}
+        \begin{flalign*}
+            \mathbb{P}(x < 0.5) & = \int_{0}^{0.5} 3(x - 1)^2 \,dx && \\
+            & = \left[(x - 1)^3\right]_{0}^{0.5} && \\
+            & = (-0.5)^3 - (-1)^3 && \\
+            & = 0.875
+        \end{flalign*}
+
+        \item
+
+        \begin{flalign*}
+            \mathbb{E}(X) & = \int_{0}^{1} x \cdot f(x) \,dx && \\
+            & =\int_{0}^{1} 3x^3 - 6x^2 + 3x \,dx && \\
+            & = \left[\frac{3}{4}x^4 - 2x^3 + \frac{3}{2}x^2\right]_0^1 && \\
+            & = \frac{3}{4} - 2 + \frac{3}{2} - 0 && \\
+            & = \frac{1}{4}
+        \end{flalign*}
+        \begin{flalign*}
+            \sigma^2 & = \text{Var}(X) && \\
+            & = \mathbb{E}(X^2) - \mathbb{E}(X)^2 && \\ \\
+            \mathbb{E}(X^2) & = \int_{0}^{1} x^2 \cdot f(x) \,dx && \\
+            & = \int_{0}^{1} 3x^4 - 6x^3 + 3x^2 \,dx && \\
+            & = \left[\frac{3}{5}x^5 - \frac{3}{2}x^4 + x^3\right]_0^1 && \\
+            & = \frac{3}{5} - \frac{3}{2} + 1 - 0 && \\
+            & = \frac{1}{10} && \\ \\
+            \Rightarrow \text{Var}(X) & = \frac{1}{10} - \frac{1}{16} && \\
+            & = \frac{3}{80} && \\ \\
+            \Rightarrow \sigma & = \sqrt{\text{Var}(X)} = \sqrt{\frac{3}{80}} \approx 0.19
+        \end{flalign*}
+        
+    \end{enumerate}
+\end{document}
